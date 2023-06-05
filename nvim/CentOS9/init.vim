@@ -5,7 +5,6 @@ filetype plugin indent on
 " Defining python path explicitly
 let g:python3_host_prog = '/usr/bin/python3'
 
-
 " General config
 set formatoptions-=cro
 set shortmess-=S
