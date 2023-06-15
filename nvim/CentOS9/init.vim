@@ -33,6 +33,10 @@ set inccommand=split
 " Source on the go!
 nnoremap <C-Space>s :source $MYVIMRC<CR>
 
+" Attempt to map ALT
+" execute "set <M-w>=^[w"
+
+
 " Highlight current line (CursorLine) - 5 lines below source:https://medium.com/usevim/highlight-the-current-line-b6ff8af798c7
 set cursorline
 hi cursorline cterm=none term=none
@@ -106,7 +110,6 @@ nnoremap { :bprevious<CR>
 nnoremap _ :bdelete<CR>
 " Custom by Rushyang
 nnoremap <C-t> :tabnew<CR>
-nnoremap <silent> <C-Space>q :WhichKey '<Space>'<CR>
 " Ctrl+space and then ctrl+s to set scrollbind
 nnoremap <C-Space><C-s> :set scrollbind! scrollbind?<CR>
 nnoremap <C-Space>w :NERDTreeToggle<CR>
@@ -134,7 +137,7 @@ nnoremap <C-Space>l gt
 au TabLeave * let g:lasttab = tabpagenr()
 " nnoremap <silent> <C-Space><Leader> :exe "tabn ".g:lasttab<cr>
 " vnoremap <silent> <C-Space><Leader> :exe "tabn ".g:lasttab<cr>
-" This is causing some issues as Move2Tab function has some errors - Commented out by Rushyang
+" This is causing some issues as Move2Tab function has some errors - Commented out
 " nnoremap <silent> <C-Space> :call Move2Tab()<cr>
 " vnoremap <silent> <C-Space> :call Move2Tab()<cr>
 
@@ -147,8 +150,12 @@ autocmd TermEnter * :let g:isInsert=1
 nnoremap <Leader>s <c-w>v
 nnoremap <Leader>v <c-w>s
 nnoremap <Leader>k <c-w><c-q>
-nmap <Leader>w :w<CR>
+nmap <Leader>ww :w<CR>
 nmap <C-Space><C-q> :q<CR>
+nmap <Leader><C-q> :q<CR>
+
+" Ctrl-backspace for delete previous word
+"nmap <Backspace> <c-w>
 
 " easier moving of code blocks for indentations only
 " Try to go into visual mode (v), then select several lines of code here and
@@ -165,8 +172,7 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
-" this is done because when writing a comment in python code the cursur goes
-" to column 0
+" this is done because when writing a comment in python code the cursur goes to column 0
 inoremap # #
 
 " Move to tab from terminal insert mode
@@ -230,9 +236,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" Whichkey to show configured keyboard shortcuts
-Plug 'liuchengxu/vim-which-key'
-Plug 'arcticicestudio/nord-vim'
 
 " For displaying branch on the lightline statusline below neovim
 " No need of gitbranch
@@ -245,7 +248,7 @@ Plug 'arcticicestudio/nord-vim'
 " Lightline for vim status bar
 Plug 'itchyny/lightline.vim'
 
-" Tcomment for fast commenting and uncommenting of code
+" Tcomment for fast commenting and uncommenting of code - gcc for toggle comment
 Plug 'tomtom/tcomment_vim'
 
 " Ag for searching in project
@@ -283,14 +286,15 @@ Plug 'tpope/vim-rhubarb'
 " Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
 
-" GoldenRatio for split window resize
+" GoldenSize for split window resize automatically while switching between windows
 Plug 'dm1try/golden_size'
 
 " Alternative file manager
 Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
+" Not using below
+" Plug 'rbgrouleff/bclose.vim'
 Plug 'ptzz/lf.vim'
-" Dependency of abov lf.vim
+" Dependency of above lf.vim
 Plug 'voldikss/vim-floaterm'
 " Plug 'mcchrish/nnn.vim'
 
@@ -311,11 +315,14 @@ Plug 'kassio/neoterm'
 Plug 'jiangmiao/auto-pairs'
 
 " Some Themes added 26th May 2023
+" Theme https://github.com/nordtheme/vim
+" Plug 'arcticicestudio/nord-vim'
 Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
 Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
 Plug 'dracula/vim'
 "Plug 'KeitaNakamura/neodark.vim'
 Plug 'rktjmp/lush.nvim', { 'as': 'lush' }
+"Plug 'uloco/bluloco.nvim'
 
 " Compare Files plugin  - Added 29th May, 2023
 " Plug 'sindrets/diffview.nvim'
@@ -332,6 +339,9 @@ call plug#end()
 filetype plugin indent on    " required
 syntax on
 " >>>>>>>> Plugin configuration end <<<<<<<<<
+"
+" Disable global lf mapping: https://github.com/ptzz/lf.vim
+" let g:lf_map_keys = 0
 
 " Insert break point for python
 " map T Oimport ipdb; ipdb.set_trace()  # BREAKPOINT<C-c>
@@ -371,7 +381,7 @@ let g:ranger_replace_netrw = 1
 " let g:rooter_patterns = ['pom.xml', 'package.json', 'go.mod', 'README.md', '.git/']
 
 let g:lf_map_keys = 0
-map - :Lf<CR>
+" map - :Lf<CR>
 
 " " Disable default mappings
 " let g:nnn#set_default_mappings = 0
@@ -382,7 +392,8 @@ map - :Lf<CR>
 
 
 " FZF config
-noremap <Leader>f :Files ~<cr>
+noremap <Leader>F :Files ~<cr>
+noremap <Leader>b :Buffers <cr>
 " noremap <Leader>s :Buffers <cr>
 "noremap <Leader>s :Ranger <cr>
 "nnoremap <Leader>F :Ranger<CR>
@@ -500,6 +511,18 @@ syntax enable
 " colorscheme nightfly
 " colorscheme moonfly
 colorscheme dracula
+" Custom colorschemes
+" require("bluloco").setup({
+"   style = "auto",               -- "auto" | "dark" | "light"
+"   transparent = false,
+"   italics = false,
+"   terminal = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
+"   guicursor   = true,
+" })
+" vim.opt.termguicolors = true
+" vim.cmd('colorscheme bluloco')
+" colorscheme bluloco-dark
+" end of new colorscheme block
 " Below 2 lines overrides the above colorscheme with black background
 " Normal background (Text) set to DARK aka NONE
 highlight Normal ctermbg=NONE guibg=NONE
@@ -535,7 +558,7 @@ endfunction
 
 " Below is for line at the bottom in nvim
 let g:lightline = {
-            \ 'colorscheme': 'powerline',
+            \ 'colorscheme': 'materia',
             \ 'active': {
             \   'left': [['statuslinetabs', 'lineinfo'], ['gitbranch',  'gittag', 'readonly', 'modified']],
             \   'right': [['mode'], ['paste'], ['absolutepath']],
