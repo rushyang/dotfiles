@@ -48,7 +48,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -94,6 +94,7 @@ plugins=(
     rsync
     kubectl-autocomplete
     wd
+    #Below plugin is for auto creating kubectl aliases
     kubectl
     zsh-autosuggestions
     #zsh-syntax-highlighting
@@ -166,6 +167,11 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bg=234"
 #bindkey '\t' end-of-line
 #bindkey '\t' autosuggest-accept
 bindkey '^ I'   complete-word       # tab          | complete
+# Make Ctrl+L for forwarding one word in suggested line. - Conflicts with
+#bindkey '^L'   forward-word
+bindkey '^K' forward-word  # Ctrl+K | accept one word
+bindkey '^J' backward-word
+#bindkey '^H'   backward-word
 #bindkey '^ [[Z' autosuggest-accept  # shift + tab  | autosuggest
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Beginning of the line - end of the line and delete char
