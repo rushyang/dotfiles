@@ -22,9 +22,11 @@ set ruler "cursorline cursorcolumn
 set nowrap
 set vb " turn off beep sound
 set number
-set relativenumber
+set noswapfile
+set mouse=a
+" set relativenumber
 " Commenting noshowmode as its being taken care by lightline now
-set noshowmode
+" set noshowmode
 " set clipboard=unnamed
 " set clipboard=unnamedplus
 set inccommand=split
@@ -32,9 +34,8 @@ set inccommand=split
 " set showtabline=0
 " Source on the go!
 nnoremap <C-Space>s :source $MYVIMRC<CR>
-
-" Attempt to map ALT
-" execute "set <M-w>=^[w"
+" https://jeancharles.quillet.org/posts/2022-03-02-Practical-introduction-to-fugitive.html
+set foldmethod=syntax
 
 
 " Highlight current line (CursorLine) - 5 lines below source:https://medium.com/usevim/highlight-the-current-line-b6ff8af798c7
@@ -95,9 +96,6 @@ set pastetoggle=<F4>
 "let mapleader = ","
 let mapleader = " "
 
-" toggle spell checking on and off with `<leader>s`
-" set spell
-" nmap <silent> <leader>s :set spell!<cr>
 nmap <silent> <F5> :set spell!<CR>
 
 " Send Text from one split window to another:
@@ -112,7 +110,7 @@ nnoremap _ :bdelete<CR>
 nnoremap <C-t> :tabnew<CR>
 " Ctrl+space and then ctrl+s to set scrollbind
 nnoremap <C-Space><C-s> :set scrollbind! scrollbind?<CR>
-nnoremap <C-Space>w :NERDTreeToggle<CR>
+" nnoremap <C-Space>w :NERDTreeToggle<CR>
 
 nnoremap <c-]> :tabnext<CR>
 nnoremap <c-[> :tabprevious<CR>
@@ -134,7 +132,7 @@ nnoremap <C-Space>h gT
 nnoremap <C-Space>l gt
 
 " Go to last active tab
-au TabLeave * let g:lasttab = tabpagenr()
+" au TabLeave * let g:lasttab = tabpagenr()
 " nnoremap <silent> <C-Space><Leader> :exe "tabn ".g:lasttab<cr>
 " vnoremap <silent> <C-Space><Leader> :exe "tabn ".g:lasttab<cr>
 " This is causing some issues as Move2Tab function has some errors - Commented out
@@ -192,10 +190,10 @@ inoremap # #
 " tnoremap <Leader>jj <C-\><C-n>
 tnoremap <ESC> <C-\><C-n>:let g:isInsert=0<cr>
 " tnoremap <C-Space> <C-\><C-n>:exe "tabn ".g:lasttab<cr>
-" This is causing some issues as Move2Tab function has some errors - Commented out by Rushyang
+" This is causing some issues as Move2Tab function has some errors
 " tnoremap <C-Space> <C-\><C-n>:call Move2Tab()<cr>
 tnoremap <C-h> <C-\><C-N><C-w>h
-" Below two lines were commented out by Rushyang
+" Below two lines were commented out
 "tnoremap <C-j> <C-\><C-N><C-w>j
 "tnoremap <C-k> <C-\><C-N><C-w>k
 "tnoremap <C-l> <C-\><C-N><C-w>l
@@ -218,12 +216,13 @@ tnoremap <C-h> <C-\><C-N><C-w>h
 " >>>>>>>> Plugin defination start <<<<<<<<<
 call plug#begin('~/.config/nvim/plugged')
 " Copied three lines by Rushyang from:
-" Plug 'roxma/nvim-completion-manager'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'stevearc/aerial.nvim'
-Plug 'preservim/nerdtree'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Aerial is the plugin that opens the outline window for skimming through the created stuff in current file for quick navigation
+" Plug 'stevearc/aerial.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" Plug 'preservim/nerdtree'
 
 " ultisnips config
 " https://github.com/SirVer/ultisnips
@@ -236,7 +235,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-
 " For displaying branch on the lightline statusline below neovim
 " No need of gitbranch
 " Plug 'itchyny/vim-gitbranch'
@@ -245,14 +243,19 @@ let g:UltiSnipsEditSplit="vertical"
 " For syntax checking
 " Plug 'w0rp/ale'
 
+" Indent Plugin: https://github.com/lukas-reineke/indent-blankline.nvim
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 " Lightline for vim status bar
 Plug 'itchyny/lightline.vim'
 
-" Tcomment for fast commenting and uncommenting of code - gcc for toggle comment
+" Tcomment for fast commenting and uncommenting of code - gcc for toggle comment - best ctrl+//
 Plug 'tomtom/tcomment_vim'
-
-" Ag for searching in project
-Plug 'jremmen/vim-ripgrep'
+" Other comment plugins for future reference
+" https://github.com/preservim/nerdcommenterhttps://github.com/preservim/nerdcommenter
+"
+" Other format plugin for better formatting:
+" https://github.com/sbdchd/neoformat
 
 " To get properties of a class
 " Plug 'majutsushi/tagbar'
@@ -314,26 +317,25 @@ Plug 'kassio/neoterm'
 " Auto pairs
 Plug 'jiangmiao/auto-pairs'
 
-" Some Themes added 26th May 2023
-" Theme https://github.com/nordtheme/vim
-" Plug 'arcticicestudio/nord-vim'
-Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
-Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
+" Some themes
+" Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
+" Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
 Plug 'dracula/vim'
-"Plug 'KeitaNakamura/neodark.vim'
-Plug 'rktjmp/lush.nvim', { 'as': 'lush' }
-"Plug 'uloco/bluloco.nvim'
-
-" Compare Files plugin  - Added 29th May, 2023
-" Plug 'sindrets/diffview.nvim'
+" Plug 'EdenEast/nightfox.nvim'
+" Plug 'folke/tokyonight.nvim'
+Plug 'rakr/vim-one'
+" Plug 'KeitaNakamura/neodark.vim'
+" Plug 'rktjmp/lush.nvim', { 'as': 'lush' }
 
 " #### Syntax Plugins ####
 " typescript
 " Plug 'leafgarland/typescript-vim'
 " Plug 'mhartington/nvim-typescript'
 
-" Vuejs
-" Plug 'posva/vim-vue'
+" Telescope config:
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 filetype plugin indent on    " required
@@ -372,7 +374,7 @@ let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 nnoremap <Leader>h :History<CR>
 
 " add this line if you use NERDTree
-let g:NERDTreeHijackNetrw = 0
+" let g:NERDTreeHijackNetrw = 0
 " open ranger when vim open a directory
 let g:ranger_replace_netrw = 1
 
@@ -393,18 +395,10 @@ let g:lf_map_keys = 0
 
 " FZF config
 noremap <Leader>F :Files ~<cr>
-noremap <Leader>b :Buffers <cr>
-" noremap <Leader>s :Buffers <cr>
-"noremap <Leader>s :Ranger <cr>
-"nnoremap <Leader>F :Ranger<CR>
+noremap <Leader>b :Telescope buffers <cr>
 noremap <Leader>r :Ranger<cr>
-" noremap <Leader>t :Tags<CR>
-" Previous normal split (horizontal is default) which I am never gonna use it
-"nnore <C-W>s :<C-U>sp \| :History <CR>
-nnore <C-W>s :<C-U>vsp \| :History<CR>
+nnore <C-W>s :<C-U>vsp \| :Files ~<CR>
 nnore <C-W>v :<C-U>vsp \| :Ranger<CR>
-" nnore <Leader>s :<C-U>vsp \| :Buffers <CR>
-" nnore <Leader>v :<C-U>sp \| :Buffers <CR>
 
 function! WinMove(key)
     let t:curwin = winnr()
@@ -460,15 +454,16 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 noremap <Leader>0 :CocCommand rest-client.request <cr>
 
 " Highlight and strip whitespace
-let g:better_whitespace_enabled=1
+let g:better_whitespace_enabled=0
 " Below value was made 0 for removing annoying whitespace prompt at the exit.
 let g:strip_whitespace_on_save=0
 let g:strip_whitelines_at_eof=1
 nnoremap <Leader><C-w> :StripWhitespace <cr>
 " let g:strip_only_modified_lines=1
 
+noremap <Leader>t :tab new<cr>
 " Opens a new terminal inside neovim!
-noremap <Leader>t :tab Tnew <cr>
+" noremap <Leader>t :tab Tnew <cr>
 " noremap <Leader>i :1Ttoggle <cr>
 
 " noremap <Leader>o :vert botright 2Ttoggle <cr>
@@ -494,7 +489,7 @@ let g:github_enterprise_urls = ['https://github.source.internal.cba']
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 " if (has("nvim"))
 "   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-"   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " endif
 "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
 "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
@@ -510,15 +505,9 @@ syntax enable
 " colorscheme evening
 " colorscheme nightfly
 " colorscheme moonfly
-colorscheme dracula
-" Custom colorschemes
-" require("bluloco").setup({
-"   style = "auto",               -- "auto" | "dark" | "light"
-"   transparent = false,
-"   italics = false,
-"   terminal = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
-"   guicursor   = true,
-" })
+" colorscheme dracula
+colorscheme one
+" colorscheme nordfox
 " vim.opt.termguicolors = true
 " vim.cmd('colorscheme bluloco')
 " colorscheme bluloco-dark
@@ -527,7 +516,7 @@ colorscheme dracula
 " Normal background (Text) set to DARK aka NONE
 highlight Normal ctermbg=NONE guibg=NONE
 " Nontext background set to DARK aka NONE - below is painful though
-"highlight NonText guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
 
 " 29th May, 2023
 " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
@@ -555,17 +544,25 @@ function MyFugitiveHead()
   endif
   return head
 endfunction
+" This requires a fix yet
+" function FugitiveTdfag()
+"   let head = FugitiveHead()
+"   if head != ""
+"     let head = "\uf126 " .. Git describe --tags
+"   endif
+"   return head
+" endfunction
 
 " Below is for line at the bottom in nvim
 let g:lightline = {
-            \ 'colorscheme': 'materia',
+            \ 'colorscheme': 'one',
             \ 'active': {
-            \   'left': [['statuslinetabs', 'lineinfo'], ['gitbranch',  'gittag', 'readonly', 'modified']],
-            \   'right': [['mode'], ['paste'], ['absolutepath']],
+            \   'left': [['mode'], ['paste'], ['lineinfo'], ['gitbranch',  'gittag', 'readonly', 'modified']],
+            \   'right': [['statuslinetabs'], ['absolutepath'], ['percent']],
             \ },
             \ 'inactive': {
-            \   'left': [[], ['line', 'absolutepath', 'gittag', 'modified']],
-            \   'right': [[], [], ['gitbranch']],
+            \   'left': [['line', 'absolutepath', 'gittag', 'modified']],
+            \   'right': [['gitbranch']],
             \ },
             \ 'component_expand': {
             \   'statuslinetabs': 'LightlineStatuslineTabs',
@@ -581,6 +578,7 @@ let g:lightline = {
 "            \   'gitbranch': 'fugitive#head'
 "            \    'gittag': '%{:G describe --tags}'
             "\   'gitbranch': 'gitbranch#name'
+            "\   'gittag': ':Git describe --tags --abbrev=0'
 function! LightlineStatuslineTabs() abort
   return join(map(range(1, tabpagenr('$')),
         \ '(v:val == tabpagenr() ? "*" : "") . (v:val)'), " ")
@@ -597,8 +595,10 @@ au TermOpen * setlocal nonumber norelativenumber
 hi Visual guifg=#000000 guibg=#FFFFFF gui=none
 "hi LineNr guifg=#585858
 " Toggle with number with relativenumber for copying
-nnoremap <C-Space><C-\> :set number! relativenumber!<CR>
-nnoremap <C-Space><C-w> :set wrap!<CR>
+" nnoremap <C-Space><C-\> :set number! relativenumber!<CR>
+nnoremap <C-Space><C-\> :setlocal nonumber!<CR>
+nnoremap <C-Space>ww :set wrap!<CR>
+nnoremap <C-Space><C-w> :w<CR>
 nnoremap <Space>d :windo diffthis<CR>
 nnoremap <C-Space><C-d> :windo diffoff<CR>
 
