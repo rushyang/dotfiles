@@ -113,8 +113,12 @@ source $ZSH/oh-my-zsh.sh
 # Stop asking for annoying auto-update
 DISABLE_AUTO_UPDATE="true"
 
-if [ -f ~/.zsh_aliases ]; then
-    source ~/.zsh_aliases;
+export ShellSupport=~/.Dot/ShellSupport
+
+if [ -f $ShellSupport/.zsh_aliases ]; then
+    source $ShellSupport/.zsh_aliases;
+else 
+   echo '[FATAL] Could not find the main .zsh_alises for custom setup'
 fi
 source $ZSH/oh-my-zsh.sh
 
