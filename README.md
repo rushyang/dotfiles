@@ -1,2 +1,2 @@
 # dotfiles
-My dotfiles of tmux, vim, nvim, zsh etc
+My dotfiles of tmux, nvim, zsh, powerlevel10k, tmux powerline etc

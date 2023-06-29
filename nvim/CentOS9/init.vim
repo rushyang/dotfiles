@@ -371,7 +371,10 @@ let g:ranger_map_keys = 0
 let g:ranger_command_override = 'ranger --cmd=tab_close --datadir=/home/apollo'
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 
-nnoremap <Leader>h :History<CR>
+" Incase fzf is needed at the top of the screen - here up is for direction and 50% means - it covers that much  of the screen during results
+" allowed: window, tmux, up, down, left, right
+" let g:fzf_layout = { '': '~50%' }
+
 
 " add this line if you use NERDTree
 " let g:NERDTreeHijackNetrw = 0
@@ -392,43 +395,54 @@ let g:lf_map_keys = 0
 " " let g:nnn#layout = 'vnew'
 " " nnoremap   :NnnPicker<CR>
 
-
-" FZF config
-noremap <Leader>F :Files ~<cr>
+" Current window and split mode
+" Files 
+noremap <Leader>f :Files ~<cr>
+nnoremap <C-Space><C-f> :<C-U>vsp \| :Files ~<CR>
+" History
+noremap <Leader>h :History<CR>
+nnoremap <C-Space><C-h> :<C-U>vsp \| :History<CR>
+" Buffers
 noremap <Leader>b :Telescope buffers <cr>
+nnoremap <C-Space><C-k> :<C-U>vsp \| :Telescope buffers<CR>
+" Ranger
 noremap <Leader>r :Ranger<cr>
-nnore <C-W>s :<C-U>vsp \| :Files ~<CR>
-nnore <C-W>v :<C-U>vsp \| :Ranger<CR>
+nnoremap <C-Space><C-l> :<C-U>vsp \| :Ranger<CR>
 
-function! WinMove(key)
-    let t:curwin = winnr()
-    exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        if (match(a:key,'[jk]'))
-            " wincmd v
-            exec "normal \<C-W>\v"
-        else
-            " wincmd s
-            exec "normal \<C-W>\s"
-        endif
-        " exec "wincmd ".a:key
-    endif
-endfunction
-nnoremap <silent> <C-Space><C-h> :call WinMove('h')<CR>
-nnoremap <silent> <C-Space><C-j> :call WinMove('j')<CR>
-nnoremap <silent> <C-Space><C-k> :call WinMove('k')<CR>
-nnoremap <silent> <C-Space><C-l> :call WinMove('l')<CR>
+" nnore <C-W>s :<C-U>vsp \| :Files ~<CR>
+" nnore <C-W>v :<C-U>vsp \| :Ranger<CR>
+" nnore <C-W>t :<C-U>vsp \| :Telescope find_files<CR>
 
-"nnoremap <silent> <C-j> :call WinMove('j')<CR>
-"nnoremap <silent> <C-k> :call WinMove('k')<CR>
-"nnoremap <silent> <C-l> :call WinMove('l')<CR>
+" function! WinMove(key)
+"     let t:curwin = winnr()
+"     exec "wincmd ".a:key
+"     if (t:curwin == winnr())
+"         if (match(a:key,'[hl]'))
+"             " Execute Ranger in default split - for h or l
+"             exec "normal \<C-W>\v"
+"         elseif (match(a:key,'[k]'))
+"             " Execute Telescope find_files 
+"             exec "normal \<C-W>\t"
+"         else
+"             " Execute Files for j
+"             exec "normal \<C-W>\s"
+"         endif
+"         " exec "wincmd ".a:key
+"     endif
+" endfunction
+" nnoremap <silent> <C-Space><C-h> :call WinMove('h')<CR>
+" nnoremap <silent> <C-Space><C-j> :call WinMove('j')<CR>
+" nnoremap <silent> <C-Space><C-k> :call WinMove('k')<CR>
+" nnoremap <silent> <C-Space><C-l> :call WinMove('l')<CR>
+
+
 
 " Open fzf in floating window
 "let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.7} }
-"let g:fzf_preview_window = ''
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8} }
-" let g:fzf_preview_window = 'right:60%'
+" let g:fzf_preview_window = ''
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8} }
 " let $BAT_THEME = 'Nord'
+let g:fzf_preview_window = 'right:60%'
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -593,7 +607,6 @@ au TermOpen * setlocal nonumber norelativenumber
 " miscellaneous items goes here
 " Highlight color should be something:
 hi Visual guifg=#000000 guibg=#FFFFFF gui=none
-"hi LineNr guifg=#585858
 " Toggle with number with relativenumber for copying
 " nnoremap <C-Space><C-\> :set number! relativenumber!<CR>
 nnoremap <C-Space><C-\> :setlocal nonumber!<CR>
@@ -649,4 +662,4 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " set statusline+=\ [%l/%L,%c%{CheckColumn()}]
 
 " Alter the colors of the number line permanently - Only works at the bottom
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg='#585858' guibg=NONE
