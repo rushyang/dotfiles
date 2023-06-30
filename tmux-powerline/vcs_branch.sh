@@ -3,7 +3,7 @@
 # Source lib to get the function get_tmux_pwd
 source "${TMUX_POWERLINE_DIR_LIB}/tmux_adapter.sh"
 
-TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN_DEFAULT=24
+TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN_DEFAULT=30
 
 branch_symbol=""
 git_colour="51"
