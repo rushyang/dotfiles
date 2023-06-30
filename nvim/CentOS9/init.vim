@@ -145,8 +145,8 @@ autocmd BufEnter * if &buftype == 'terminal' && g:isInsert == 1 | :startinsert |
 autocmd TermEnter * :let g:isInsert=1
 
 " New window and close windows
-nnoremap <Leader>s <c-w>v
-nnoremap <Leader>v <c-w>s
+nnoremap <Leader>s <c-w>s
+nnoremap <Leader>v <c-w>v
 nnoremap <Leader>k <c-w><c-q>
 nmap <Leader>ww :w<CR>
 nmap <C-Space><C-q> :q<CR>
@@ -268,6 +268,7 @@ Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-unimpaired'
 " Plug 'MobiusHorizons/fugitive-stash.vim'
 Plug 'tpope/vim-rhubarb'
+Plug 'mhinz/vim-signify'
 
 " Golang support for vim
 " Plug 'fatih/vim-go', { 'for': 'go' }
