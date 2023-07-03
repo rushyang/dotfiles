@@ -256,6 +256,7 @@ Plug 'tomtom/tcomment_vim'
 "
 " Other format plugin for better formatting:
 " https://github.com/sbdchd/neoformat
+Plug 'sbdchd/neoformat'
 
 " To get properties of a class
 " Plug 'majutsushi/tagbar'
@@ -472,6 +473,8 @@ noremap <Leader>0 :CocCommand rest-client.request <cr>
 let g:better_whitespace_enabled=0
 " Below value was made 0 for removing annoying whitespace prompt at the exit.
 let g:strip_whitespace_on_save=0
+let g:strip_trailing_lines = 1
+
 let g:strip_whitelines_at_eof=1
 nnoremap <Leader><C-w> :StripWhitespace <cr>
 " let g:strip_only_modified_lines=1
