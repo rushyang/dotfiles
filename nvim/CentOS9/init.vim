@@ -590,7 +590,7 @@ let g:lightline = {
             \ },
             \  'component': {
             \    'clock': '%{strftime("%a %d %b %I:%M%p")}',
-            \    'gittag': '%{substitute(system("git tag --points-at HEAD | xargs"), "\n", "|", "g")}',
+            \    'gittag': '%{substitute(system("git tag --points-at HEAD 2>/dev/null | xargs"), "\n", "|", "g")}',
             \  },
             \ }
 "            \   'gitbranch': 'fugitive#head'
