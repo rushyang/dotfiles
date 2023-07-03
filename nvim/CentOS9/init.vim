@@ -149,8 +149,13 @@ nnoremap <Leader>s <c-w>s
 nnoremap <Leader>v <c-w>v
 nnoremap <Leader>k <c-w><c-q>
 nmap <Leader>ww :w<CR>
-nmap <C-Space><C-q> :q<CR>
+nmap <C-q> :q<CR>
 nmap <Leader><C-q> :q<CR>
+nnoremap <C-Space><C-\> :setlocal nonumber!<CR>
+nnoremap <C-Space>ww :set wrap!<CR>
+nnoremap <C-w> :w<CR>
+nnoremap <Space>d :windo diffthis<CR>
+nnoremap <C-Space><C-d> :windo diffoff<CR>
 
 " Ctrl-backspace for delete previous word
 "nmap <Backspace> <c-w>
@@ -410,7 +415,9 @@ nnoremap <C-Space><C-k> :<C-U>vsp \| :Telescope buffers<CR>
 " Ranger
 noremap <Leader>r :Ranger<cr>
 nnoremap <C-Space><C-l> :<C-U>vsp \| :Ranger<CR>
-
+" Git_files
+noremap <Leader>g :Telescope git_files<cr>
+nnoremap <C-Space><C-g> :<C-U>vsp \| :Telescope git_files<CR>
 " nnore <C-W>s :<C-U>vsp \| :Files ~<CR>
 " nnore <C-W>v :<C-U>vsp \| :Ranger<CR>
 " nnore <C-W>t :<C-U>vsp \| :Telescope find_files<CR>
@@ -423,7 +430,7 @@ nnoremap <C-Space><C-l> :<C-U>vsp \| :Ranger<CR>
 "             " Execute Ranger in default split - for h or l
 "             exec "normal \<C-W>\v"
 "         elseif (match(a:key,'[k]'))
-"             " Execute Telescope find_files 
+"             " Execute Telescope find_files
 "             exec "normal \<C-W>\t"
 "         else
 "             " Execute Files for j
@@ -590,7 +597,7 @@ let g:lightline = {
             \ },
             \  'component': {
             \    'clock': '%{strftime("%a %d %b %I:%M%p")}',
-            \    'gittag': '%{substitute(system("git tag --points-at HEAD 2>/dev/null | xargs"), "\n", "|", "g")}',
+            \    'gittag': '%{substitute(system("git tag --points-at HEAD 2>/dev/null | xargs"), "\n", " ", "g")}',
             \  },
             \ }
 "            \   'gitbranch': 'fugitive#head'
@@ -613,11 +620,6 @@ au TermOpen * setlocal nonumber norelativenumber
 hi Visual guifg=#000000 guibg=#FFFFFF gui=none
 " Toggle with number with relativenumber for copying
 " nnoremap <C-Space><C-\> :set number! relativenumber!<CR>
-nnoremap <C-Space><C-\> :setlocal nonumber!<CR>
-nnoremap <C-Space>ww :set wrap!<CR>
-nnoremap <C-Space><C-w> :w<CR>
-nnoremap <Space>d :windo diffthis<CR>
-nnoremap <C-Space><C-d> :windo diffoff<CR>
 
 " Some key mappings to copy whats selected - yank and paste
 vnoremap  <leader>y  "+y
