@@ -579,18 +579,18 @@ let g:lightline = {
             \   'right': [['statuslinetabs'], ['absolutepath'], ['percent']],
             \ },
             \ 'inactive': {
-            \   'left': [['line', 'absolutepath', 'gittag', 'modified']],
-            \   'right': [['gitbranch']],
+            \   'left': [['absolutepath', 'gittag']],
+            \   'right': [['gitbranch', 'modified', 'line']],
             \ },
             \ 'component_expand': {
             \   'statuslinetabs': 'LightlineStatuslineTabs',
             \ },
             \ 'component_function': {
             \   'gitbranch': 'MyFugitiveHead',
-            \   'gittag': 'FugitiveTag',
             \ },
             \  'component': {
-            \    'clock': '%{strftime("%a %d %b %I:%M%p")}'
+            \    'clock': '%{strftime("%a %d %b %I:%M%p")}',
+            \    'gittag': '%{substitute(system("git tag --points-at HEAD | xargs"), "\n", "|", "g")}',
             \  },
             \ }
 "            \   'gitbranch': 'fugitive#head'
