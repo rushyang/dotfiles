@@ -600,16 +600,11 @@ let g:lightline = {
             \    'gittag': '%{substitute(system("git tag --points-at HEAD 2>/dev/null | xargs"), "\n", " ", "g")}',
             \  },
             \ }
-"            \   'gitbranch': 'fugitive#head'
-"            \    'gittag': '%{:G describe --tags}'
-            "\   'gitbranch': 'gitbranch#name'
-            "\   'gittag': ':Git describe --tags --abbrev=0'
+
 function! LightlineStatuslineTabs() abort
   return join(map(range(1, tabpagenr('$')),
         \ '(v:val == tabpagenr() ? "*" : "") . (v:val)'), " ")
 endfunction
-" Above is getting commented
-" \ '(v:val == tabpagenr() ? "*" : "") . lightline#tab#filename(v:val)'), " ")
 
 " Disable number/relativenumber for neovim terminal
 au TermOpen * setlocal nonumber norelativenumber
