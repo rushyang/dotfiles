@@ -23,20 +23,40 @@ set nowrap
 set vb " turn off beep sound
 set number
 set noswapfile
-set mouse=a
+set mouse+=a
+" Set vertical split as default
+set diffopt+=vertical
+" Split to right and below by default
+set splitright
+set splitbelow
+" will buffer screens instead of updating. ttyfast and lazyredraw makes buffer update while scrolling bit faster
+set lazyredraw
+set ttyfast
+" To make nvim faster (read help to see how)
+set noshowcmd noruler
+set inccommand=split
+"Search settings
+set ignorecase
+set smartcase
+set incsearch
+set completeopt-=preview
+" For command mode auto complete
+set wildmenu
+set wildmode=longest:full,list:full
+" Better copy & paste
+set pastetoggle=<F4>
+" Change viminfo history to increase no of files in fzf :History - Default was: shada=!,'100,<50,s10,h
+" Source: https://vi.stackexchange.com/questions/26035/fzf-vim-how-to-configure-the-maximum-amount-of-files-stored-in-recent-files-hist
+" set viminfo=shada=!,'1000,<50,s10,h:
 " set relativenumber
-" Commenting noshowmode as its being taken care by lightline now
-" set noshowmode
+" Disable scratch pad
+" Clipboard
 " set clipboard=unnamed
 " set clipboard=unnamedplus
-set inccommand=split
-" set guicursor=""
-" set showtabline=0
+" set showtabline=1
+
 " Source on the go!
 nnoremap <C-Space>s :source $MYVIMRC<CR>
-" https://jeancharles.quillet.org/posts/2022-03-02-Practical-introduction-to-fugitive.html
-set foldmethod=syntax
-
 
 " Highlight current line (CursorLine) - 5 lines below source:https://medium.com/usevim/highlight-the-current-line-b6ff8af798c7
 set cursorline
@@ -45,55 +65,18 @@ autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=234
 
-" Set vertical split as default
-set diffopt+=vertical
-
-" Split to right and below by default
-set splitright
-set splitbelow
-
-" will buffer screens instead of updating
-set lazyredraw
-set ttyfast
-
-" Disable scratch pad
-set completeopt-=preview
-
-" To make nvim faster, not exactly sure though.
-set noshowcmd noruler
-
 " Navigate between split windows quickly
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
 nnoremap <c-h> <c-w><c-h>
-" nnoremap <c-j> <c-d>
-" nnoremap <c-k> <c-u>
-" nnoremap <c-l> <c-w>w
-" nnoremap <c-h> <c-w>W
 
-" For command mode auto complete
-set wildmenu
-set wildmode=longest:full,list:full
-
-"Search settings
-set ignorecase
-set smartcase
-set incsearch
 
 " change insert mode key
 inoremap jj <Esc>`^
 inoremap kk <Esc>`^
 
-" Better copy & paste
-" When you want to paste large blocks of code into vim, press F4 before you
-" paste. At the bottom you should see ``-- INSERT (paste) --``.
-set pastetoggle=<F4>
-
 " Rebind <Leader> key
-" I like to have it here because it is easier to reach than the default and
-" it is next to ``m`` and ``n`` which I use for navigating between tabs.
-"let mapleader = ","
 let mapleader = " "
 
 nmap <silent> <F5> :set spell!<CR>
@@ -106,18 +89,14 @@ vnoremap <F6> y<c-w>wp<c-w>pgv
 nnoremap } :bnext<CR>
 nnoremap { :bprevious<CR>
 nnoremap _ :bdelete<CR>
-" Custom by Rushyang
+" New Tab in normal mode via Ctrl+t
 nnoremap <C-t> :tabnew<CR>
-" Ctrl+space and then ctrl+s to set scrollbind
+" Ctrl+space ctrl+s to scrollbind
 nnoremap <C-Space><C-s> :set scrollbind! scrollbind?<CR>
 " nnoremap <C-Space>w :NERDTreeToggle<CR>
-
+" Ctrl+] / [ for navigating between tabs
 nnoremap <c-]> :tabnext<CR>
 nnoremap <c-[> :tabprevious<CR>
-" nnoremap <c-n> :tabnext<CR>
-
-" Below Line commented out by Rushyang
-" nnoremap <Leader>j :tab split<CR>
 
 nnoremap <C-Space>1 1gt
 nnoremap <C-Space>2 2gt
@@ -128,34 +107,30 @@ nnoremap <C-Space>6 6gt
 nnoremap <C-Space>7 7gt
 nnoremap <C-Space>8 8gt
 nnoremap <C-Space>9 9gt
-nnoremap <C-Space>h gT
-nnoremap <C-Space>l gt
-
-" Go to last active tab
-" au TabLeave * let g:lasttab = tabpagenr()
-" nnoremap <silent> <C-Space><Leader> :exe "tabn ".g:lasttab<cr>
-" vnoremap <silent> <C-Space><Leader> :exe "tabn ".g:lasttab<cr>
-" This is causing some issues as Move2Tab function has some errors - Commented out
-" nnoremap <silent> <C-Space> :call Move2Tab()<cr>
-" vnoremap <silent> <C-Space> :call Move2Tab()<cr>
+" nnoremap <C-Space>h gT
+" nnoremap <C-Space>l gt
 
 " If terminal buffer start in insert mode
 let g:isInsert=1
 autocmd BufEnter * if &buftype == 'terminal' && g:isInsert == 1 | :startinsert | endif
 autocmd TermEnter * :let g:isInsert=1
 
-" New window and close windows
+" Horizonal and Vertical Split of same buffer
 nnoremap <Leader>s <c-w>s
 nnoremap <Leader>v <c-w>v
+" Save and Exit
 nnoremap <Leader>k <c-w><c-q>
 nmap <Leader>ww :w<CR>
 nmap <C-q> :q<CR>
 nmap <Leader><C-q> :q<CR>
+" Turn off number for copy
 nnoremap <C-Space><C-\> :setlocal nonumber!<CR>
 nnoremap <C-Space>ww :set wrap!<CR>
 nnoremap <C-w> :w<CR>
 nnoremap <Space>d :windo diffthis<CR>
 nnoremap <C-Space><C-d> :windo diffoff<CR>
+"Fugitive Diffs - don't want carriage return <CR> for providing params
+nnoremap <C-Space>G :Gvdiffsplit
 
 " Ctrl-backspace for delete previous word
 "nmap <Backspace> <c-w>
@@ -170,7 +145,8 @@ vnoremap > >gv  " better indentation
 set wildignore+=*.pyc,*.swp,.git,**/migrations/**,**/beans/**
 
 "folding settings
-set foldmethod=indent   "fold based on indent
+set foldmethod=syntax
+" set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
@@ -226,6 +202,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'stevearc/aerial.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" Icons
+Plug 'ryanoasis/vim-devicons'
 
 " Plug 'preservim/nerdtree'
 
@@ -325,9 +304,10 @@ Plug 'kassio/neoterm'
 Plug 'jiangmiao/auto-pairs'
 
 " Some themes
-" Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
-" Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
+Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
+Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
 Plug 'dracula/vim'
+Plug 'mhartington/oceanic-next'
 " Plug 'EdenEast/nightfox.nvim'
 " Plug 'folke/tokyonight.nvim'
 Plug 'rakr/vim-one'
@@ -403,7 +383,7 @@ let g:lf_map_keys = 0
 " " nnoremap   :NnnPicker<CR>
 
 " Current window and split mode
-" Files 
+" Files
 noremap <Leader>f :Files ~<cr>
 nnoremap <C-Space><C-f> :<C-U>vsp \| :Files ~<CR>
 " History
@@ -478,10 +458,8 @@ noremap <Leader>0 :CocCommand rest-client.request <cr>
 
 " Highlight and strip whitespace
 let g:better_whitespace_enabled=0
-" Below value was made 0 for removing annoying whitespace prompt at the exit.
-let g:strip_whitespace_on_save=0
+let g:strip_whitespace_on_save=1
 let g:strip_trailing_lines = 1
-
 let g:strip_whitelines_at_eof=1
 nnoremap <Leader><C-w> :StripWhitespace <cr>
 " let g:strip_only_modified_lines=1
@@ -524,14 +502,20 @@ if (has("termguicolors"))
 endif
 let g:nord_italic=1
 let g:nord_italic_comments=1
+" OceanicNext specific config:
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
 syntax enable
 " set background=dark
+" Some themes
 " colorscheme elflord
 " colorscheme evening
 " colorscheme nightfly
+" colorscheme OceanicNext
 " colorscheme moonfly
 " colorscheme dracula
 colorscheme one
+
 " colorscheme nordfox
 " vim.opt.termguicolors = true
 " vim.cmd('colorscheme bluloco')
