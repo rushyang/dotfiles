@@ -117,14 +117,17 @@ export ShellSupport=~/.Dot/ShellSupport
 
 if [ -f $ShellSupport/.zsh_aliases ]; then
     source $ShellSupport/.zsh_aliases;
-else 
+else
    echo '[FATAL] Could not find the main .zsh_alises for custom setup'
 fi
 source $ZSH/oh-my-zsh.sh
 
-HISTORY_IGNORE='(clear|celar|history*|cd *|Kni*|Necr*|ls *)'
+HISTORY_IGNORE='(clear|celar|history*|cd *|ls *)'
 # Custom History Tweaks
-[ -f ~/.zsh_history_tweaks ] && source ~/.zsh_history_tweaks
+if [ -f $ShellSupport/.zsh_history_tweaks ]; then
+   source $ShellSupport/.zsh_history_tweaks;
+fi
+# [ -f ~/.zsh_history_tweaks ] && source ~/.zsh_history_tweaks
 
 
 # User configuration
