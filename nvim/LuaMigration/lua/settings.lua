@@ -3,23 +3,27 @@
 local g = vim.g
 local o = vim.opt
 
+-- Set runtime path:
+vim.o.runtimepath = vim.o.runtimepath .. ',~/.local/bin/' .. ',/usr/bin/'
+
 -- Defining python explicitly
-g.python3_host_prog = '/usr/bin/python3'
+g.python3_host_prog = '/usr/bin/python'
 vim.cmd('filetype plugin indent on')
 
 -- Enable syntax detection according to filetype
 o.syntax = 'on'
 o.formatoptions = o.formatoptions - 'cro'
 o.shortmess = o.shortmess - 'S'
-o.tabstop = 2
-o.shiftwidth = 2
-o.softtabstop = 2
+o.tabstop = 3
+o.shiftwidth = 3
+o.softtabstop = 3
 o.shiftround = true
 o.expandtab = true
 o.numberwidth = 1
 o.smartindent = true
 o.autowrite = true
 o.autoread = true
+vim.o.tabline = tabTitle
 
 -- o.nocompatible = true --nvim is always nocompatible
 o.hidden = true
