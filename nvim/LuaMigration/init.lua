@@ -3,6 +3,7 @@
 -- local nvim_lua_modules = OSHOME .. "/.config/nvim/lua/?.lua"
 -- package.path = package.path .. ";" .. nvim_lua_modules
 
+require("global")
 require("settings")                                             -- General config
 require("packer_bootstrap")                                     -- Packer - package manager
 require("toggles.CoC")                                          -- Toggling CoC in lua as couldn't find direct function to toggle
