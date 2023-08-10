@@ -89,6 +89,7 @@ keymap("n", "<F5>", ":set spell!<CR>", optns)
 keymap("n", "<C-Space><C-\\>", [[<Cmd>setlocal nonumber! | IndentBlanklineToggle <CR>]], optns)
 keymap("n", "<C-Space>ww", ":set wrap!<CR>", optns)
 keymap("n", "<C-Space><C-s>", ":set scrollbind! scrollbind?<CR>", optns)
+keymap('n', '<F2>', ':lua toggle_CoC()<CR>', { noremap = true })
 
 -- (N) Misc
 keymap("n", "Q", "q", optns)                                                        -- Change Macro record to "Q"- nonsilent

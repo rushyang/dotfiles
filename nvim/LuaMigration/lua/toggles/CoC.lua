@@ -12,6 +12,3 @@ function toggle_CoC()
     -- print('Coc disabled')
   end
 end
-
--- Map a key to toggle Coc
-vim.api.nvim_set_keymap('n', '<F2>', ':lua toggle_CoC()<CR>', { noremap = true })
