@@ -109,7 +109,6 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 #Source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-
 # Stop asking for annoying auto-update
 DISABLE_AUTO_UPDATE="true"
 
@@ -122,12 +121,11 @@ else
 fi
 source $ZSH/oh-my-zsh.sh
 
-HISTORY_IGNORE='(clear|celar|history*|cd *|ls *)'
+HISTORY_IGNORE='(clear|celar|history*|cd *|ls *|echo*|wd*|ranger*|man*|rssh*)'
 # Custom History Tweaks
 if [ -f $ShellSupport/.zsh_history_tweaks ]; then
    source $ShellSupport/.zsh_history_tweaks;
 fi
-# [ -f ~/.zsh_history_tweaks ] && source ~/.zsh_history_tweaks
 
 
 # User configuration
@@ -174,7 +172,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bg=234"
 #bindkey '\t' end-of-line
 #bindkey '\t' autosuggest-accept
 bindkey '^ I'   complete-word       # tab          | complete
-# Make Ctrl+L for forwarding one word in suggested line. - Conflicts with
+# Make Ctrl+L for forwarding one word in suggested line. - Conflicts with clear
 #bindkey '^L'   forward-word
 bindkey '^K' forward-word  # Ctrl+K | accept one word
 bindkey '^J' backward-word
