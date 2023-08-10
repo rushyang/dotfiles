@@ -6,7 +6,7 @@
 require("global")
 require("settings")                                             -- General config
 require("packer_bootstrap")                                     -- Packer - package manager
-require("toggles.CoC")                                          -- Toggling CoC in lua as couldn't find direct function to toggle
+require("toggles")                                              -- Separate toggle module calling desired toggles from lua/toggles/
 require("plugins_config")                                       -- Plugins_config loads all individual plugins' config
-require("keymaps")                                              -- Keymaps
 require("themes")                                               -- Themes, its specific configs and overrides
+require("keymaps")                                              -- Keymaps

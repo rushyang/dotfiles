@@ -21,54 +21,77 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  -- Fugitive
+  -----Telescope----
+  use {
+     'nvim-telescope/telescope.nvim',
+     requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {
+     'nvim-telescope/telescope-fzf-native.nvim',
+     after = 'telescope.nvim',
+     run = 'make',
+     config = function()
+        require('telescope').load_extension('fzf')
+      end,
+  }
+  use {
+     'nvim-telescope/telescope-symbols.nvim',
+     after = 'telescope.nvim',
+  }
+  -----Git Tools----
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'mhinz/vim-signify'
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  ----- Icons -----
+  use { 'nvim-tree/nvim-web-devicons', as = 'nvim-tree-web-devicons' }
+  use {'kyazdani42/nvim-web-devicons', as = 'kyazdani42-web-devicons', path = "~/.local/share/nvim/site/pack/packer/start/nvim-web-devicons2"}
   -- Ranger + dependency
   use "rbgrouleff/bclose.vim"
   use "francoiscabrol/ranger.vim"
-  -- Indent Plugin
-  use 'nvim-tree/nvim-tree.lua'
+  -- nvim-tree
+  use {
+   'nvim-tree/nvim-tree.lua',
+   requires = { 'nvim-tree-web-devicons', opt = true },
+  }
   -- Indent Plugin
   use "lukas-reineke/indent-blankline.nvim"
   -- nvim-treesitter doesn't work even after compeleting config. Check it later
-  -- use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'nvim-treesitter/nvim-treesitter',
+   run = ':TSUpdate',
+   requires = {'kyazdani42-web-devicons', opt = true}
+  }
   use {
       "nvim-lualine/lualine.nvim",
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+      requires = {'kyazdani42-web-devicons', opt = true}
   }
-  use "ryanoasis/vim-devicons"
   use "tomtom/tcomment_vim"
   ----- Themes ----
   use {'catppuccin/nvim', as = 'catppuccin'}
-  use "itchyny/lightline.vim"
   use "folke/tokyonight.nvim"
   use "dracula/vim"
   use "navarasu/onedark.nvim"
   use "EdenEast/nightfox.nvim"
-  use {'bluz71/vim-nightfly-colors', as = 'nightfly'}
-  use {'bluz71/vim-moonfly-colors', as = 'moonfly'}
   -----------------
   use "rakr/vim-one"
   use "dm1try/golden_size"
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
+  ------icons------
   use({
     'kyazdani42/nvim-web-devicons',
     config = function()
         require('nvim-web-devicons').setup()
     end,
   })
-  -- Telescope
-  use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.x',
-  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  use 'DaikyXendo/nvim-material-icon'
   use 'ntpeters/vim-better-whitespace'
-  -- CoC
+  -------CoC------
   -- Jedi Vim for Python development
-  use { 'davidhalter/jedi-vim', ft = { 'py', 'python' } }
+  use {
+    'davidhalter/jedi-vim',
+     ft = { 'py', 'python' }
+  }
   -- Coc.nvim for Language Server Protocol support
   use { 'neoclide/coc.nvim', branch = 'release' }
   -- Coc extensions
@@ -76,22 +99,22 @@ return require('packer').startup(function(use)
   use { 'neoclide/coc-yaml', run = 'yarn install --frozen-lockfile' }
   use { 'neoclide/coc-python', run = 'yarn install --frozen-lockfile' }
   -- completion
-  -- use 'hrsh7th/nvim-cmp'
-  -- use 'hrsh7th/cmp-nvim-lsp'
-  -- use 'L3MON4D3/LuaSnip'
-  -- use 'saadparwaiz1/cmp_luasnip'
-  -- use "rafamadriz/friendly-snippets"
-  -- use "github/copilot.vim"
-  -- use "williamboman/mason.nvim"
-  -- use "neovim/nvim-lspconfig"
-  -- use "williamboman/mason-lspconfig.nvim"
-  -- -- glepnir/lspsaga.nvim
-  -- use {
-  --     'glepnir/lspsaga.nvim',
-  --     config = function()
-  --         require('lspsaga').init_lsp_saga()
-  --     end,
-  -- }
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use "rafamadriz/friendly-snippets"
+  use "github/copilot.vim"
+  use "williamboman/mason.nvim"
+  use "neovim/nvim-lspconfig"
+  use "williamboman/mason-lspconfig.nvim"
+  -- glepnir/lspsaga.nvim
+  use {
+     'glepnir/lspsaga.nvim',
+     config = function()
+         require('lspsaga').init_lsp_saga()
+     end,
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
