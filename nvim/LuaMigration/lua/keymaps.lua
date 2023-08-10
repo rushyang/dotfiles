@@ -36,10 +36,9 @@ keymap("n", "<C-Up>", [[<Cmd>:horizontal resize +3<CR>]], opts)
 keymap("n", "<C-Down>", [[<Cmd>:horizontal resize -3<CR>]], opts)
 
 -- (N) Quick Fuzzy Search / Split Modes
--- keymap("n", "<Leader>f", ':lua require("telescope.builtin").find_files({cwd = os.getenv("HOME"), hidden = true})<CR>', opts)
-keymap("n", "<Leader>f", [[<Cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Search in home: "), use_regex = true, hidden = true, search_dirs = {vim.fn.expand('~')} })<CR>]], opts)
-keymap("n", "<C-Space><C-f>", ':<C-U>vsp | :lua require("telescope.builtin").find_files({cwd = os.getenv("HOME"), hidden = true})<CR>', opts)
--- keymap("n", "<C-Space><C-f>", ":<C-U>vsp | :Files ~<CR>", opts)
+keymap("n", "<Leader>f", [[<Cmd>Files ~<CR>]], opts)
+keymap("n", "<C-Space><C-f>", [[<C-U>vsp | <Cmd>Files ~<CR>]], opts)
+keymap("n", "<C-Space><C-f>", ":<C-U>vsp | :Files ~<CR>", opts)
 keymap("n", "<Leader>h", ":History<CR>", opts)
 keymap("n", "<C-Space><C-h>", ":<C-U>vsp | :History<CR>", opts)
 keymap("n", "<Leader>b", ":Buffers<CR>", opts)
@@ -48,6 +47,7 @@ keymap("n", "<Leader>r", ":Ranger<CR>", opts)
 keymap("n", "<C-Space><C-l>", ":<C-U>vsp | :Ranger<CR>", opts)
 keymap("n", "<Leader>g", ":Telescope git_files<CR>", opts)
 keymap("n", "<C-Space><C-g>", ":<C-U>vsp | :Telescope git_files<CR>", opts)
+keymap("n", "<Leader>t", '<Cmd>lua telescope_live_grep_in_git_project()<CR>', optns)
 
 -- (N) New Tabs, Cycle through the tas and buffers
 keymap("n", ")", ":tabnext<CR>", optns)
@@ -77,15 +77,19 @@ keymap("n", "<C-w>", ":w<CR>", opts)
 keymap("n", "<Leader>d", [[<Cmd>windo diffthis<CR>]], optns)
 keymap("n", "<C-Space><C-d>", [[<Cmd>windo diffoff<CR>]], optns)
 keymap("n", "<C-Space>G", ":Gvdiffsplit! ", optns)                                                    -- Fugitive vertical diff call - non-silent and without <Cmd> + <CR> for params
+keymap("n", "<C-Space><M-0>", ":0Gllog <CR>", optns)                                                  -- Fugitive - see commit history of just current file
+keymap("n", "<M-g>", ':lua GoldenSizeToggle()<CR> :DiffviewOpen <CR>', optns)                         -- First disable Golden_Size and then DiffviewOpen
+keymap("n", "<C-Space><M-g>", ':lua GoldenSizeToggle()<CR> :DiffviewClose ', optns)                   -- Enable Golden_Size and then DiffviewClose but wait for prompt
 keymap("n", "H", "[c", opts)
 keymap("n", "L", "]c", opts)
 
--- (N) Non-silent toggles
-keymap("n", "<F5>", ":set spell!<CR>", optns)
+-- (N) Toggles
 keymap("n", "<C-Space><C-\\>", [[<Cmd>setlocal nonumber! | IndentBlanklineToggle <CR>]], optns)
 keymap("n", "<C-Space>ww", ":set wrap!<CR>", optns)
 keymap("n", "<C-Space><C-s>", ":set scrollbind! scrollbind?<CR>", optns)
 keymap('n', '<F2>', ':lua toggle_CoC()<CR>', { noremap = true })
+keymap('n', '<F3>', ':lua GoldenSizeToggle()<CR>', { noremap = true })
+keymap("n", "<F5>", ":set spell!<CR>", optns)
 
 -- (N) Misc
 keymap("n", "Q", "q", optns)                                                                         -- Change Macro record to "Q"- nonsilent
