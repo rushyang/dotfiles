@@ -21,11 +21,11 @@ local colors = {
 local function dynamic_mode_color()
   -- auto change color according to neovims mode
   local mode_color = {
-    n = colors.green,
+    n = colors.blue,
     i = colors.red,
-    v = colors.blue,
+    v = colors.green,
     [''] = colors.blue,
-    V = colors.blue,
+    V = colors.orange,
     c = colors.magenta,
     no = colors.red,
     s = colors.orange,
