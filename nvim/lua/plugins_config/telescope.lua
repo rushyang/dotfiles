@@ -17,6 +17,11 @@ function telescope_live_grep_in_git_project()
         end,
     })
 end
+
+-- Enable telescope fzf native, if installed
+pcall(require('telescope').load_extension, 'fzf')
+
+-- Telescope config
 require('telescope').setup {
   defaults = {
     prompt_prefix = "   ",
@@ -57,5 +62,11 @@ require('telescope').setup {
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
     qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker
+    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+    mappings = {
+      i = {
+        ['<C-u>'] = false,
+        ['<C-d>'] = false,
+      },
+    },
 }
