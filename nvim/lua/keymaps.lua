@@ -40,8 +40,8 @@ keymap("n", "<Leader>b", [[<Cmd>Telescope buffers<CR>]], eopts({desc = "Open [B]
 keymap("n", "<C-Space><C-b>", [[<Cmd>vertical split | :Telescope buffers<CR>]], eopts({desc = "Vertical Split and Open [B]uffers"}))
 keymap("n", "<Leader>r", ":Ranger<CR>", eopts({desc = "Open Ranger in current buffer"}))
 keymap("n", "<C-Space><C-l>", ":vertical split | :Ranger<CR>", eopts({desc = "Vertical Split and Open Ranger"}))
--- keymap("n", "<Leader>g", ":GitFiles<CR>", eopts({desc = "Fuzzy search of files in current Git project"}))
--- keymap("n", "<C-Space><C-g>", ":<C-U>vsp | :GitFiles<CR>", eopts({desc = "Vertical Split and fuzzy search of files in current Git project"}))
+keymap("n", "<Leader>g", [[<Cmd>Telescope git_files<CR>]], eopts({desc = "Fuzzy search of files in current Git project"}))
+keymap("n", "<C-Space><C-g>", [[<Cmd>vertical_split | :Telescope git_files<CR>]], eopts({desc = "Vertical Split and fuzzy search of files in current Git project"}))
 keymap("n", "<Leader>t", '<Cmd>lua telescope_live_grep_in_git_project()<CR>', eopts({desc = "Live grep in Git Project"}))
 keymap("n", "<Leader>k", '<Cmd>Telescope keymaps <CR>', eopts({desc = "Open Telescope [k]eymaps"}))
 
