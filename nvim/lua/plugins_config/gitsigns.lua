@@ -65,6 +65,6 @@ require('gitsigns').setup {
    map('n', '<leader>hr', gs.reset_hunk)
    map('n', '<leader>tb', gs.toggle_current_line_blame)
    map('n', '<leader>td', gs.toggle_deleted)
-   -- map('n', '<leader>hd', gs.diffthis)
+   map('n', '<leader>hd', gs.diffthis)
   end
 }
