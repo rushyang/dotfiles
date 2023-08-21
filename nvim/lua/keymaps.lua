@@ -32,8 +32,8 @@ keymap("n", "<C-Up>", [[<Cmd>:horizontal resize +3<CR>]], eopts({desc = "Horizon
 keymap("n", "<C-Down>", [[<Cmd>:horizontal resize -3<CR>]], eopts({desc = "Horizontal Resize -3"}))
 
 -- (N) Quick Fuzzy Search / Split Modes
-keymap("n", "<Leader>f", [[<Cmd>Telescope find_files cwd=/home/apollo hidden=true<CR>]], eopts({desc = "Search [F]iles in $HOME"}))
-keymap("n", "<C-Space><C-f>", [[<Cmd>vertical split | :Telescope find_files cwd=/home/apollo hidden=true<CR>]], eopts({desc = "Vertical Split and Search [F]iles in $HOME"}))
+keymap("n", "<Leader>f", "<Cmd>lua require('telescope.builtin').find_files({ cwd = '" .. oshome .. "', hidden = true })<CR>", eopts({desc = "Search [F]iles in $HOME"}))
+keymap("n", "<C-Space><C-f>", "<Cmd>vertical split | lua require('telescope.builtin').find_files({ cwd = '" .. oshome .. "', hidden = true })<CR>", eopts({desc = "Vertical Split and Search [F]iles in $HOME"}))
 keymap('n', '<Leader>h', [[<Cmd>lua require('telescope.builtin').oldfiles()<CR>]], eopts({desc = "[H]istory - previously opened files"}))
 keymap("n", "<C-Space><C-h>", [[<Cmd>vertical split | lua require('telescope.builtin').oldfiles()<CR>]], eopts({desc = "Vertical Split and [H]istory Search"}))
 keymap("n", "<Leader>b", [[<Cmd>Telescope buffers<CR>]], eopts({desc = "Open [B]uffers"}))
