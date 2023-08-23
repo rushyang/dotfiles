@@ -13,7 +13,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require('lazy').setup({
   ----- Telescope + Fuzzy Finders ----
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x',
@@ -77,14 +76,13 @@ require('lazy').setup({
   { 'nvim-focus/focus.nvim', version = '*' },
 
   ----- WhiteSpace -----
-  -- 'ntpeters/vim-better-whitespace',
   "cappyzawa/trim.nvim",
 
   ------ CoC -----
-  {
-    'davidhalter/jedi-vim',
-     ft = { 'py', 'python' }
-  },
+  -- {
+  --   'davidhalter/jedi-vim',
+  --    ft = { 'py', 'python' }
+  -- },
 
   -- Coc.nvim for Language Server Protocol support
   { 'neoclide/coc.nvim', branch = 'release' },
@@ -93,7 +91,6 @@ require('lazy').setup({
   { 'neoclide/coc-lists', run = 'yarn install --frozen-lockfile' },
   { 'neoclide/coc-yaml', run = 'yarn install --frozen-lockfile' },
   { 'neoclide/coc-python', run = 'yarn install --frozen-lockfile' },
-
 
   -- LSP Configuration & Plugins
   {

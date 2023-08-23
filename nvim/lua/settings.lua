@@ -14,9 +14,9 @@ vim.cmd('filetype plugin indent on')
 o.syntax = 'on'
 o.formatoptions = o.formatoptions - 'cro'
 o.shortmess = o.shortmess - 'S'
-o.tabstop = 3
-o.shiftwidth = 3
-o.softtabstop = 3
+o.tabstop = 2
+o.shiftwidth = 2
+o.softtabstop = 2
 o.shiftround = true
 o.expandtab = true
 o.numberwidth = 1
