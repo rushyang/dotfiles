@@ -96,7 +96,7 @@ local config = {
       function()
         return '▊'
       end,
-      get_absolute_path,
+      _Get_absolute_path,
     },
     lualine_b = {},
     lualine_y = {},
@@ -142,7 +142,7 @@ ins_left {
 
 ins_left {
   -- 'filename',
-  get_absolute_path,
+  _Get_absolute_path,
   cond = conditions.buffer_not_empty,
   color = dynamic_mode_color,
   padding = { left = 1, right = 0 },
@@ -215,7 +215,7 @@ ins_right {
 }
 
 ins_left{
-  get_git_tag,
+  _Get_git_tag,
   color = { fg = colors.blue },
   padding = { left = 1 },
 }
