@@ -1,4 +1,5 @@
-require("plugins_config.better-whitespace")
+-- require("plugins_config.better-whitespace")
+require("plugins_config.trim")
 require("plugins_config.indent-blankline")
 require("plugins_config.nvim-tree")
 require("plugins_config.nvim-web-devicons")

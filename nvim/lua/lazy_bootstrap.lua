@@ -77,7 +77,8 @@ require('lazy').setup({
   { 'nvim-focus/focus.nvim', version = '*' },
 
   ----- WhiteSpace -----
-  'ntpeters/vim-better-whitespace',
+  -- 'ntpeters/vim-better-whitespace',
+  "cappyzawa/trim.nvim",
 
   ------ CoC -----
   {
