@@ -1,5 +1,4 @@
--- Install package manager
---    https://github.com/folke/lazy.nvim
+-- Install package manager https://github.com/folke/lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -34,6 +33,7 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'lewis6991/gitsigns.nvim',
   { 'sindrets/diffview.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, },
+  'olacin/telescope-cc.nvim',
 
   ----- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -45,8 +45,8 @@ require('lazy').setup({
   ----- Icons -----
   'kyazdani42/nvim-web-devicons',
 
-  ----- nvim-tree
-  'nvim-tree/nvim-tree.lua',
+  -- ----- nvim-tree
+  -- 'nvim-tree/nvim-tree.lua',
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -121,8 +121,18 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  --
+  {
+    "folke/noice.nvim",
+    -- event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+      }
+  }
+
 }, {})

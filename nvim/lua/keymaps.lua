@@ -90,7 +90,9 @@ keymap("n", "<C-Space>ww", ":set wrap!<CR>", optns)
 keymap("n", "<C-Space><C-s>", ":set scrollbind! scrollbind?<CR>", optns)
 keymap('n', '<F2>', ':lua toggle_CoC()<CR>', { noremap = true })
 keymap('n', '<F3>', ':FocusToggle<CR>', { noremap = true })
+keymap("n", "<F4>", ":lua toggle_Lsp()<CR>", _Eopts({desc = "Lsp Toggle"}))
 keymap("n", "<F5>", ":set spell!<CR>", _Eopts({desc = "Spell Check Toggle"}))
+keymap("n", "<F6>", ":lua toggle_Noice()<CR>", _Eopts({desc = "Noice Toggle"}))
 
 -- (N) Misc
 keymap("n", "Q", "q", optns)

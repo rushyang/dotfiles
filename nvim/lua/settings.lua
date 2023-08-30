@@ -46,7 +46,8 @@ o.splitright = true
 o.splitbelow = true
 
 -- will buffer screens instead of updating. ttyfast and lazyredraw makes buffer update while scrolling bit faster
-o.lazyredraw = true
+o.lazyredraw = false
+o.termguicolors = true
 o.ttyfast = true
 
 -- Control the behavior of search (:s) commands in real time with split below
