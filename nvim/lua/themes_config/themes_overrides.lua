@@ -29,7 +29,7 @@ end
 vim.cmd('highlight DiffText ctermfg=NONE ctermbg=NONE guifg=Yellow1 guibg=DarkRed')
 
 -- Lines
-vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey100 guibg=Grey0')
+vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey82 guibg=Grey0')
 
 -- To change the background of removed lines to red
 vim.cmd('highlight DiffDelete ctermfg=NONE ctermbg=NONE guifg=red guibg=black')
