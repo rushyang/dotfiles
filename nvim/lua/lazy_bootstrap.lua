@@ -78,11 +78,8 @@ require('lazy').setup({
   ----- WhiteSpace -----
   "cappyzawa/trim.nvim",
 
-  ------ CoC -----
-  -- {
-  --   'davidhalter/jedi-vim',
-  --    ft = { 'py', 'python' }
-  -- },
+  ------ Github Copilot -----
+  'github/copilot.vim',
 
   -- Coc.nvim for Language Server Protocol support
   { 'neoclide/coc.nvim', branch = 'release' },

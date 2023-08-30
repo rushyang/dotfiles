@@ -96,6 +96,7 @@ keymap("n", "Q", "q", optns)
 -- keymap("n", "<C-Space>s", ":source $MYVIMRC<CR>", optns)
 keymap("n", "<Leader><C-w>", ":StripWhitespace<CR>", _Eopts({desc = "Strip Whitespaces"}))
 keymap("n", "<C-Space>in", ":IndentBlanklineToggle<CR>", _Eopts({desc = "IndentBlankline Toggle"}))
+keymap("n", "<Leader>co", ":Copilot<CR>", _Eopts({desc = "Invoking Copilot"}))
 
 -- Insert Mode
 -- (I) Change insert mode key:
