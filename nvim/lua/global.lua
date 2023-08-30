@@ -10,7 +10,14 @@ end
 
 -- get_absolute_path function
 function _Get_absolute_path()
-    return vim.fn.expand('%:p')
+    local file_path = vim.fn.expand('%:p')
+    local home_dir = vim.fn.expand('$HOME')
+
+    if vim.startswith(file_path, home_dir) then
+        return '~' .. string.sub(file_path, #home_dir + 1)
+    else
+        return file_path
+    end
 end
 
 -- Extend mapping options (For Displaying Description in Telescope keymaps)
