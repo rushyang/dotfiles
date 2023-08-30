@@ -18,6 +18,11 @@ function telescope_live_grep_in_git_project()
     })
 end
 
+-- Load Telescope conventional_commits beforehand
+require('telescope').load_extension("conventional_commits")
+local actions = require("telescope._extensions.conventional_commits.actions")
+local picker = require("telescope._extensions.conventional_commits.picker")
+
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
@@ -34,14 +39,14 @@ require('telescope').setup {
     layout_config = {
         horizontal = {
             prompt_position = "bottom",
-            preview_width = 0.55,
-            results_width = 0.8
+            preview_width = 0.50,
+            results_width = 0.5
         },
         vertical = {
             mirror = false
         },
-        width = 0.95,
-        height = 0.90,
+        width = 0.75,
+        height = 0.70,
         preview_cutoff = 120
     }
    },
@@ -69,4 +74,38 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+    -- extensions = {
+    --     conventional_commits = {
+    --         -- picker({
+    --             -- action = actions.prompt,
+    --             -- include_body_and_footer = true,
+    --         -- })
+    --         print(vim.inspect(entry))
+    --         -- action = actions.prompt,
+    --         -- include_body_and_footer = true,
+    --     },
+    -- },
 }
+
+function _Create_conventional_commit()
+    local actions = require("telescope._extensions.conventional_commits.actions")
+    local picker = require("telescope._extensions.conventional_commits.picker")
+    local opts = {}
+    opts.prompt_title = "Conventional Commit"
+    opts.prompt_prefix = "   "
+    opts.attach_mappings = function(prompt_bufnr, map)
+        actions.select_default:replace(function()
+            local selection = actions.get_selected_entry()
+            actions.close(prompt_bufnr)
+            vim.cmd("normal! i" .. selection.value)
+        end)
+        return true
+    end
+    picker({
+        action = actions.prompt,
+        include_body_and_footer = false,
+    })
+    -- require('telescope.builtin').conventional_commits(opts)
+end
+
+-- vim.api.nvim_set_keymap("n", "<leader>cc", '<Cmd>lua create_conventional_commit()<CR>',  desc = "Create a conventional commit"})

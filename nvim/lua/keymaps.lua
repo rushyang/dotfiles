@@ -82,6 +82,7 @@ keymap("n", "<M-g>", ':lua _FOCUS_RESIZE0()<CR> :DiffviewOpen ', optns)
 keymap("n", "<C-Space><M-g>", ':lua _FOCUS_RESIZE1()<CR> :DiffviewClose ', optns)
 keymap("n", "H", "[c", _Eopts({desc = "Go to Previous hunk or Diffview Change"}))
 keymap("n", "L", "]c", _Eopts({desc = "Go to Next hunk or Diffview change"}))
+keymap("n", "<Leader>cc",':lua _Create_conventional_commit()<CR>', _Eopts({desc = "Create a conventional commit"}))
 
 -- (N) Toggles
 keymap("n", "<C-Space><C-\\>", [[<Cmd>setlocal nonumber! | IndentBlanklineToggle <CR>]], optns)
