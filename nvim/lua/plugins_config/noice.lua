@@ -72,8 +72,9 @@ require("noice").setup({
 })
 require("notify").setup({
   background_colour = "#000000",
-  timeout = 2000,
+  timeout = 1500,
   animate = false,
+  fps = 45,
   icons = {
     DEBUG = "",
     ERROR = "",

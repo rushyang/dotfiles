@@ -103,6 +103,7 @@ function _Create_conventional_commit()
     end
     picker({
         action = actions.prompt,
+        -- Setting below as false as body and footer can be set via fugitive as its getting invoked after msg
         include_body_and_footer = false,
     })
     -- require('telescope.builtin').conventional_commits(opts)
