@@ -1,2 +1,5 @@
-require("themes_config.catppuccin")
+-- require("themes_config.catppuccin")
+require("themes_config.kanagawa")
+-- require("themes_config.colorscheme")
 require("themes_config.themes_overrides")
+-- require("themes_config.tokyo_dark")

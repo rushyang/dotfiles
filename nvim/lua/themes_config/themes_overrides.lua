@@ -4,6 +4,12 @@ vim.cmd([[highlight Normal ctermbg=NONE guibg=NONE]])
 -- Highlight NonText
 vim.cmd([[highlight NonText guibg=NONE ctermbg=NONE]])
 
+-- End of Buffer
+vim.cmd([[highlight EndOfBuffer guibg=NONE ctermbg=NONE]])
+
+-- Sign Column
+vim.cmd([[highlight SignColumn guibg=NONE ctermbg=NONE]])
+
 -- Auto command for TermOpen
 vim.cmd([[autocmd TermOpen * setlocal nonumber norelativenumber]])
 
