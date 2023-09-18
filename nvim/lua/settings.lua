@@ -23,7 +23,7 @@ o.numberwidth = 1
 o.smartindent = true
 o.autowrite = true
 o.autoread = true
-vim.o.tabline = tabTitle
+o.tabline = "%!v:lua.require'tabby.tabline'.tabline()"
 
 -- o.nocompatible = true --nvim is always nocompatible
 o.hidden = true
@@ -77,3 +77,6 @@ o.foldlevel = 1
 
 -- Paste Toggle
 o.pastetoggle = '<F4>'
+
+-- Tabline
+-- o.showtabline = 2
