@@ -136,6 +136,8 @@ require('lazy').setup({
       }
   },
 
+  -- Auto-pairs
+  'windwp/nvim-autopairs',
 
   -- NvimTab names (Tabby)
   'nanozuki/tabby.nvim',
