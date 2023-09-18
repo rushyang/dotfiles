@@ -1,4 +1,4 @@
--- Install package manager https://github.com/folke/lazy.nvim
+-- Install package:manager https://github.com/folke/lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -45,8 +45,6 @@ require('lazy').setup({
   ----- Icons -----
   'kyazdani42/nvim-web-devicons',
 
-  -- ----- nvim-tree
-  -- 'nvim-tree/nvim-tree.lua',
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -56,21 +54,22 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  ----- Indent
+  ----- Indent -----
   'lukas-reineke/indent-blankline.nvim',
 
   ----- Lualine -----
   'nvim-lualine/lualine.nvim',
 
-  ----- Themes ----
+  ----- Colorschemes ----
   { 'catppuccin/nvim', name = 'catppuccin' },
   'folke/tokyonight.nvim',
+  'rafamadriz/neon',
+  'sainnhe/edge',
+  "tiagovla/tokyodark.nvim",
+  "rebelot/kanagawa.nvim",
 
-  ----- Comments ----
+  ----- Comments -----
   'tomtom/tcomment_vim',
-
-  ----- golden_size ----- Golden_size is creating problems with telescope's search bar layout
-  -- 'dm1try/golden_size',
 
   ----- focus (golden_size alternative)
   { 'nvim-focus/focus.nvim', version = '*' },
@@ -78,7 +77,7 @@ require('lazy').setup({
   ----- WhiteSpace -----
   "cappyzawa/trim.nvim",
 
-  ------ Github Copilot -----
+  ----- Github Copilot ----
   'github/copilot.vim',
 
   -- Coc.nvim for Language Server Protocol support
@@ -106,10 +105,11 @@ require('lazy').setup({
     },
   },
 
+  -- Autocompletion
   {
-    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
+      "hrsh7th/cmp-buffer",
       -- Snippet Engine & its associated nvim-cmp source
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
@@ -121,7 +121,8 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
-  --
+
+  -- Noice & Notify
   {
     "folke/noice.nvim",
     -- event = "VeryLazy",
@@ -133,6 +134,12 @@ require('lazy').setup({
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
       }
-  }
+  },
 
+
+  -- NvimTab names (Tabby)
+  'nanozuki/tabby.nvim',
+
+  -- Startify
+  'mhinz/vim-startify',
 }, {})

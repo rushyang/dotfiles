@@ -1,5 +1,5 @@
 -- Define a variable to keep track of the Noice state
-_G.Noice_enabled = false
+_G.Noice_enabled = true
 
 -- Function to toggle Noice
 function toggle_Noice()

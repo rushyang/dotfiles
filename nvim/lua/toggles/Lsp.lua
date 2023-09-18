@@ -1,5 +1,5 @@
 -- Define a variable to keep track of the Lsp state
-_G.Lsp_enabled = false
+_G.Lsp_enabled = true
 
 -- Function to toggle Lsp
 function toggle_Lsp()

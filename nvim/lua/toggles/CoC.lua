@@ -1,5 +1,5 @@
 -- Define a variable to keep track of the Coc state
-_G.CoC_enabled = false
+_G.CoC_enabled = true
 
 -- Function to toggle Coc
 function toggle_CoC()

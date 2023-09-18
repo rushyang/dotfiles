@@ -17,7 +17,7 @@ require("noice").setup({
   },
   cmdline = {
       enabled = true, -- enables the Noice cmdline UI
-      view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+      view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
       -- view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
       opts = {}, -- global options for the cmdline. See section on views
   },
@@ -71,9 +71,11 @@ require("noice").setup({
   -- },
 })
 require("notify").setup({
+  level = "info",
   background_colour = "#000000",
-  timeout = 1500,
-  animate = false,
+  timeout = 900,
+  top_down = "true",
+  -- animate = true,
   fps = 45,
   icons = {
     DEBUG = "",
