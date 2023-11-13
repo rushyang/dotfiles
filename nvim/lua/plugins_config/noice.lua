@@ -75,7 +75,7 @@ require("notify").setup({
   background_colour = "#000000",
   timeout = 900,
   top_down = "true",
-  -- animate = true,
+  animate = true,
   fps = 45,
   icons = {
     DEBUG = "",
