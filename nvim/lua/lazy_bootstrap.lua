@@ -67,6 +67,10 @@ require('lazy').setup({
   'sainnhe/edge',
   "tiagovla/tokyodark.nvim",
   "rebelot/kanagawa.nvim",
+  { "ellisonleao/gruvbox.nvim", priority = 1000 },
+  { "sainnhe/gruvbox-material", priority = 1000 },
+  { "sainnhe/everforest", priority = 1000 },
+  { "sainnhe/sonokai", priority = 1000 },
 
   ----- Comments -----
   'tomtom/tcomment_vim',

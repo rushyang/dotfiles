@@ -32,7 +32,7 @@ end
 
 -- Diffmode
 -- Just Changed "text" within lines
-vim.cmd('highlight DiffText ctermfg=NONE ctermbg=NONE guifg=Yellow1 guibg=DarkRed')
+vim.cmd('highlight DiffText guifg=Yellow1 guibg=DarkRed')
 
 -- Lines
 vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey82 guibg=Grey0')
