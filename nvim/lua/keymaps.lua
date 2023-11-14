@@ -15,6 +15,7 @@ keymap("n", "<C-h>", "<C-w>h", _Eopts({desc = "Go to Left Buffer"}))
 keymap("n", "<C-j>", "<C-w>j", _Eopts({desc = "Go to Below Buffer "}))
 keymap("n", "<C-k>", "<C-w>k", _Eopts({desc = "Go to Upper Buffer"}))
 keymap("n", "<C-l>", "<C-w>l", _Eopts({desc = "Go to Right Buffer"}))
+keymap("n", "dw", "daw", _Eopts({desc = "Delete a word around cursor"}))
 
 -- (N) Search Settings
 keymap("n", "ss", ":noh<CR>", _Eopts({desc = "Clear Search Highlight"}))
@@ -100,6 +101,7 @@ keymap("n", "Q", "q", optns)
 keymap("n", "<Leader><C-w>", ":StripWhitespace<CR>", _Eopts({desc = "Strip Whitespaces"}))
 keymap("n", "<C-Space>in", ":IndentBlanklineToggle<CR>", _Eopts({desc = "IndentBlankline Toggle"}))
 keymap("n", "<Leader>co", ":Copilot<CR>", _Eopts({desc = "Invoking Copilot"}))
+keymap("n", "<Leader><C-g>", "<Plug>(GitlabToggleCodeSuggestions)", _Eopts({desc = "Toggle Gitlab Code Suggestions"}))
 
 -- Insert Mode
 -- (I) Change insert mode key:

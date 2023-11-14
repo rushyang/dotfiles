@@ -148,4 +148,10 @@ require('lazy').setup({
 
   -- Startify
   'mhinz/vim-startify',
+
+  -- Gitlab plugin
+  -- {
+  -- url = "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
+  -- lazy = false,
+  -- },
 }, {})
