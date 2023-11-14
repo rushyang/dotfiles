@@ -38,9 +38,15 @@ require('lazy').setup({
   ----- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  ----- Ranger + dependency
+  ----- File Managers
+  -- (Ranger + Dependency)
   'rbgrouleff/bclose.vim',
   'francoiscabrol/ranger.vim',
+  -- Oil
+  {
+  'stevearc/oil.nvim',
+  opts = {},
+  },
 
   ----- Icons -----
   'kyazdani42/nvim-web-devicons',
