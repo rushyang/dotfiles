@@ -101,7 +101,6 @@ plugins=(
     fzf-zsh-plugin
     )
 
-
 # Below line is specific for the zsh-completions
 # https://github.com/zsh-users/zsh-completions
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -126,7 +125,6 @@ HISTORY_IGNORE='(clear|celar|history*|cd *|ls *|echo*|wd*|ranger*|man*|rssh*)'
 if [ -f $ShellSupport/.zsh_history_tweaks ]; then
    source $ShellSupport/.zsh_history_tweaks;
 fi
-
 
 # User configuration
 
@@ -166,7 +164,28 @@ autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
 source ~/.bash_completion.d/compleat_setup
+# Change behavior of forward-backword
+# https://superuser.com/questions/1479606/zsh-jump-to-the-end-of-words
+# Replace `forward-word` with `emacs-forward-word`. Problem solved.
+zle -A emacs-forward-word forward-word
 
+# For `backward-word`, it's a bit more complex. We'll have to
+# create a new widget for this.
+zle -N backward-word backward-word-end
+backward-word-end() {
+  # Move to the beginning of the current word.
+  zle .backward-word
+
+  # If we're at the beginning of the buffer, we don't need to do
+  # anything else.
+  (( CURSOR )) ||
+      return
+
+  # Otherwise, move to the end of the word before the current one.
+  zle .backward-word
+  zle .emacs-forward-word
+}
+# Configuration ends here
 # zsh-autosuggestions assisting tweak to select suggestion via tab - later removed below because it hinders with suggestions or selecting directories
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bg=234"
 #bindkey '\t' end-of-line
@@ -174,8 +193,13 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bg=234"
 bindkey '^ I'   complete-word       # tab          | complete
 # Make Ctrl+L for forwarding one word in suggested line. - Conflicts with clear
 #bindkey '^L'   forward-word
-bindkey '^K' forward-word  # Ctrl+K | accept one word
+bindkey '^K' forward-word
+bindkey '^L' forward-word
 bindkey '^J' backward-word
+bindkey '^H' backward-word
+# bindkey '^K' 'forward-word end-of-line'   # Ctrl+K | Move to the end of the line
+# bindkey '^J' 'backward-word beginning-of-line' # Ctrl+J | Move to the beginning of the line
+
 #bindkey '^H'   backward-word
 #bindkey '^ [[Z' autosuggest-accept  # shift + tab  | autosuggest
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -192,7 +216,6 @@ export ZSH_AUTOSUGGEST_STRATEGY=(
 
 # Source Feature Reach Syntax Highlighting Plugin:
 source ~/.oh-my-zsh/custom/plugins/fsh/F-Sy-H.plugin.zsh
-
 
 # zplug stuff - Not working
 #export ZPLUG_HOME=~/.Dot/.zplug
