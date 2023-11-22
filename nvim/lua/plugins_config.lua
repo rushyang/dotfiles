@@ -1,5 +1,5 @@
 require("plugins_config.trim")
-require("plugins_config.indent-blankline")
+-- require("plugins_config.indent-blankline")
 require("plugins_config.nvim-web-devicons")
 require("plugins_config.ranger")
 require("plugins_config.evil_lualine")

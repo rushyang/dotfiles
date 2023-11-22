@@ -1,5 +1,6 @@
 -- Highlight Normal - Sets background to NONE
-vim.cmd([[highlight Normal ctermbg=NONE guibg=NONE]])
+-- vim.cmd([[highlight Normal ctermbg=NONE guibg=NONE]])
+vim.cmd([[highlight Normal ctermbg=NONE guibg=#0b161f]])
 
 -- Highlight NonText
 vim.cmd([[highlight NonText guibg=NONE ctermbg=NONE]])
@@ -35,10 +36,20 @@ end
 vim.cmd('highlight DiffText guifg=Yellow1 guibg=DarkRed')
 
 -- Lines
-vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey82 guibg=Grey0')
+-- vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey82 guibg=Grey0')
+vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey82 guibg=black')
 
 -- To change the background of removed lines to red
 vim.cmd('highlight DiffDelete ctermfg=NONE ctermbg=NONE guifg=red guibg=black')
 
 -- To change the background of removed lines
 vim.cmd('highlight DiffAdd ctermfg=NONE ctermbg=NONE guifg=LightCyan1 guibg=DarkGreen')
+
+-- Override LspDiagnostics colors
+  -- hi DiagnosticError guifg=#43616b
+vim.cmd [[
+  hi DiagnosticError guifg=#a8832d
+  hi DiagnosticWarn guifg=#6c6c6c
+  hi DiagnosticInfo guifg=#005f87
+  hi DiagnosticHint guifg=#00af87
+]]

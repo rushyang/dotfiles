@@ -61,7 +61,7 @@ require('lazy').setup({
   },
 
   ----- Indent -----
-  'lukas-reineke/indent-blankline.nvim',
+  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
 
   ----- Lualine -----
   'nvim-lualine/lualine.nvim',
@@ -77,7 +77,14 @@ require('lazy').setup({
   { "sainnhe/gruvbox-material", priority = 1000 },
   { "sainnhe/everforest", priority = 1000 },
   { "sainnhe/sonokai", priority = 1000 },
-
+  { "rafamadriz/neon", priority = 1000 },
+  { 'Th3Whit3Wolf/onebuddy',
+    dependencies = {
+      'tjdevries/colorbuddy.vim',
+    },
+  },
+  { "Th3Whit3Wolf/one-nvim" },
+  { "navarasu/onedark.nvim" },
   ----- Comments -----
   'tomtom/tcomment_vim',
 

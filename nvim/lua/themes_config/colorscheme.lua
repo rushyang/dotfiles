@@ -5,4 +5,4 @@ vim.o.termguicolors = true
 -- moonfly and nightfly are not good as thick line shows up between panes
 
 -- Groovbox config:
-vim.cmd [[ colorscheme oak ]]
+vim.cmd [[ colorscheme nord ]]
