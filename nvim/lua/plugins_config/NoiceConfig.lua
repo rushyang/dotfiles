@@ -39,8 +39,17 @@ require("noice").setup({
   --   view_history = "messages", -- view for :messages
   --   view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
   -- },
+  -- Below is commented to check later. Its erroring out
   -- views = {
   --   cmdline_popup = {
+  --     border = {
+  --       style = "none",
+  --       padding = { 2, 3 },
+  --     },
+  --     filter_options = {},
+  --     win_options = {
+  --       winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+  --     },
   --     position = {
   --       row = 5,
   --       col = "50%",
@@ -67,6 +76,16 @@ require("noice").setup({
   --     win_options = {
   --       winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
   --     },
+  --   },
+  -- },
+  -- routes = {
+  --   {
+  --     filter = {
+  --       event = "msg_show",
+  --       kind = "",
+  --       find = "written",
+  --     },
+  --     opts = { skip = true },
   --   },
   -- },
 })

@@ -102,6 +102,7 @@ keymap("n", "<Leader><C-w>", ":StripWhitespace<CR>", _Eopts({desc = "Strip White
 keymap("n", "<C-Space>in", ":IndentBlanklineToggle<CR>", _Eopts({desc = "IndentBlankline Toggle"}))
 keymap("n", "<Leader>co", ":Copilot<CR>", _Eopts({desc = "Invoking Copilot"}))
 keymap("n", "<Leader><C-g>", "<Plug>(GitlabToggleCodeSuggestions)", _Eopts({desc = "Toggle Gitlab Code Suggestions"}))
+keymap("n", "<C-Space>S", ":Startify<CR>", _Eopts({desc = "Open startify"}))
 
 -- Insert Mode
 -- (I) Change insert mode key:

@@ -5,3 +5,4 @@ require("toggles")                                              -- Separate togg
 require("plugins_config")                                       -- Plugins_config loads all individual plugins' config
 require("themes")                                               -- Themes, its specific configs and overrides
 require("keymaps")                                              -- Keymaps
+require("misc")                                                 -- Miscelaneous items
