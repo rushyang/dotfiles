@@ -34,6 +34,7 @@ require('lazy').setup({
   'lewis6991/gitsigns.nvim',
   { 'sindrets/diffview.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, },
   'olacin/telescope-cc.nvim',
+  'pabloariasal/webify.nvim',
 
   ----- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -162,6 +163,14 @@ require('lazy').setup({
   -- Startify
   'mhinz/vim-startify',
 
+  --  Markdown-preview
+  -- install without yarn or npm
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
   -- Gitlab plugin
   -- {
   -- url = "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
