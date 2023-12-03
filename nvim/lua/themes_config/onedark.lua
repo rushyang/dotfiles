@@ -1,6 +1,6 @@
 -- Lua
 require('onedark').setup {
-    style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     term_colors = true, -- Change terminal color as per the selected theme style
 
     -- toggle theme style ---
@@ -15,6 +15,10 @@ require('onedark').setup {
         variables = 'none'
     },
 
+    -- Default color overrides
+    colors = {
+        purple = "#8c68ba", -- Making defualt purple little more darker
+    },
     -- Lualine options --
     lualine = {
         transparent = true, -- lualine center bar transparency
