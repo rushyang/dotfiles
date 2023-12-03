@@ -22,12 +22,12 @@ require("noice").setup({
       opts = {}, -- global options for the cmdline. See section on views
   },
   popupmenu = {
-  enabled = true, -- enables the Noice popupmenu UI
-  ---@type 'nui'|'cmp'
-  backend = "nui", -- backend to use to show regular cmdline completions
-  ---@type NoicePopupmenuItemKind|false
-  -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
-  kind_icons = {}, -- set to `false` to disable icons
+    enabled = true, -- enables the Noice popupmenu UI
+    ---@type 'nui'|'cmp'
+    backend = "nui", -- backend to use to show regular cmdline completions
+    ---@type NoicePopupmenuItemKind|false
+    -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
+    kind_icons = {}, -- set to `false` to disable icons
   },
   messages = {
     -- NOTE: If you enable messages, then the cmdline is enabled automatically.
@@ -38,6 +38,30 @@ require("noice").setup({
     view_warn = "notify", -- view for warnings
     view_history = "messages", -- view for :messages
     view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+  },
+  -- Clean cmdline_popup
+  -- views = {
+  --   cmdline_popup = {
+  --     border = {
+  --       style = "none",
+  --       padding = { 2, 3 },
+  --     },
+  --     filter_options = {},
+  --     win_options = {
+  --       winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+  --     },
+  --   },
+  -- },
+  -- Trying to skip write messages in noice
+  routes = {
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "written",
+      },
+      opts = { skip = true },
+    },
   },
   -- Below is commented to check later. Its erroring out
   -- views = {
@@ -76,16 +100,6 @@ require("noice").setup({
   --     win_options = {
   --       winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
   --     },
-  --   },
-  -- },
-  -- routes = {
-  --   {
-  --     filter = {
-  --       event = "msg_show",
-  --       kind = "",
-  --       find = "written",
-  --     },
-  --     opts = { skip = true },
   --   },
   -- },
 })
