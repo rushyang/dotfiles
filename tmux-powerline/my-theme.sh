@@ -44,7 +44,7 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 		"#[$(format regular)]" \
 		"  #I#{?window_flags,#F,}" \
 		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
-		" #W "
+		" #W"
 	)
 fi
 
@@ -99,20 +99,21 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		#"macos_notification_count 29 255" \
 		#"mailcount 9 255" \
 		# "now_playing 234 37" \
-		#"cpu 240 136" \
-		# "load 237 167" \
-		#"tmux_mem_cpu_load 234 136" \
+		# "cpu 235 136" \
+		"load 235 167 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		# "tmux_mem_cpu_load 234 136" \
 		# "battery 137 127" \
 		# "weather 37 255" \
-		#"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
-		#"xkb_layout 125 117" \
-		"vcs_branch 235 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"vcs_compare 235 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"vcs_staged 235 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"vcs_modified 237 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		# "rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
+		# "xkb_layout 125 117" \
+		## "vcs_branch 235 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		## "vcs_compare 235 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		## "vcs_staged 235 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		## "vcs_modified 237 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		# "date_day 235 46 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		# "date 235 51 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		"time 235 226 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		"utc_time 235 46 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		# "date 235 111 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		"date 234 148 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 	)
 fi

@@ -1,7 +1,8 @@
 # Prints the current time.
 
 # TMUX_POWERLINE_SEG_DATE_FORMAT_DEFAULT="%F"
-TMUX_POWERLINE_SEG_TIME_FORMAT_DEFAULT="%I:%M:%S%p %Z"
+# TMUX_POWERLINE_SEG_TIME_FORMAT_DEFAULT="%I:%M:%S%p %Z"
+TMUX_POWERLINE_SEG_TIME_FORMAT_DEFAULT="%I:%M%p"
 
 generate_segmentrc() {
 	read -d '' rccontents  << EORC

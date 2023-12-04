@@ -10,7 +10,6 @@ git_colour="51"
 svn_colour="220"
 hg_colour="45"
 
-
 generate_segmentrc() {
 	read -d '' rccontents  << EORC
 # Max length of the branch name.
@@ -18,7 +17,6 @@ export TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN="${TMUX_POWERLINE_SEG_VCS_BRANCH_MA
 EORC
 	echo "$rccontents"
 }
-
 
 run_segment() {
 	__process_settings
@@ -39,7 +37,6 @@ run_segment() {
 	return 0
 }
 
-
 # Show git banch.
 __parse_git_branch() {
 	type git >/dev/null 2>&1
@@ -53,7 +50,7 @@ __parse_git_branch() {
 	branch=$(git symbolic-ref HEAD 2> /dev/null)
 	if [[ -z $branch ]] ; then
 		# attempt to get short-sha-name
-		branch=":$(git rev-parse --short HEAD 2> /dev/null)"
+    branch=":$(git rev-parse --short HEAD 2> /dev/null)"
 	fi
 	if [ "$?" -ne 0 ]; then
 		# this must not be a git repo
@@ -79,7 +76,6 @@ __parse_svn_branch() {
 		return
 	fi
 
-
 	local svn_root=$(echo "${svn_info}" | sed -ne 's#^Repository Root: ##p')
 	local svn_url=$(echo "${svn_info}" | sed -ne 's#^URL: ##p')
 
@@ -104,13 +100,11 @@ __parse_hg_branch() {
 	echo "#[fg=colour${hg_colour}]${branch_symbol} #[fg=colour${TMUX_POWERLINE_CUR_SEGMENT_FG}]${branch}"
 }
 
-
 __truncate_branch_name() {
 	trunc_symbol="…"
 	branch=$(echo $1 | sed "s/\(.\{$TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN\}\).*/\1$trunc_symbol/")
 	echo -n $branch
 }
-
 
 __process_settings() {
 	if [ -z "$TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN" ]; then
