@@ -53,16 +53,16 @@ require("noice").setup({
   --   },
   -- },
   -- Trying to skip write messages in noice
-  routes = {
-    {
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "written",
-      },
-      opts = { skip = true },
-    },
-  },
+  -- routes = {
+  --   {
+  --     filter = {
+  --       event = "msg_show",
+  --       kind = "",
+  --       find = "written",
+  --     },
+  --     opts = { skip = true },
+  --   },
+  -- },
   -- Below is commented to check later. Its erroring out
   -- views = {
   --   cmdline_popup = {
@@ -103,18 +103,19 @@ require("noice").setup({
   --   },
   -- },
 })
-require("notify").setup({
-  level = "info",
-  background_colour = "#000000",
-  timeout = 900,
-  top_down = "true",
-  animate = true,
-  fps = 45,
-  icons = {
-    DEBUG = "",
-    ERROR = "",
-    INFO = "",
-    TRACE = "✎",
-    WARN = ""
-  },
-})
+-- require("notify").setup({
+--   level = "info",
+--   background_colour = "#000000",
+--   timeout = 900,
+--   top_down = "true",
+--   animate = true,
+--   fps = 45,
+--   icons = {
+--     DEBUG = "",
+--     ERROR = "",
+--     INFO = "",
+--     TRACE = "✎",
+--     WARN = ""
+--   },
+-- })
+require("telescope").load_extension("noice")

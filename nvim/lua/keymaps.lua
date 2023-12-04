@@ -109,6 +109,7 @@ keymap("n", "<C-Space>M", ":MarkdownPreview<CR>", _Eopts({desc = "Markdown Previ
 -- (I) Change insert mode key:
 keymap("i", "jj", "<Esc>`^", opts)
 keymap("i", "kk", "<Esc>`^", opts)
+keymap("i", "ll", "<Esc>`^", opts)
 
 -- Visual Mode
 keymap("v", "<F6>", "y<c-w>wp<c-w>pgv", _Eopts({desc = "Text Movement from one pane to another"}))

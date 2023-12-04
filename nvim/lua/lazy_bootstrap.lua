@@ -68,24 +68,20 @@ require('lazy').setup({
   'nvim-lualine/lualine.nvim',
 
   ----- Colorschemes ----
-  { 'catppuccin/nvim', name = 'catppuccin' },
-  'folke/tokyonight.nvim',
-  'rafamadriz/neon',
-  'sainnhe/edge',
-  "tiagovla/tokyodark.nvim",
-  "rebelot/kanagawa.nvim",
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'folke/tokyonight.nvim', name = 'tokyonight', priority = 1000 },
+  { 'rafamadriz/neon', priority = 1000 },
+  { 'sainnhe/edge', priority = 1000 },
+  { "tiagovla/tokyodark.nvim", priority = 1000 },
+  { "rebelot/kanagawa.nvim", priority = 1000 },
   { "ellisonleao/gruvbox.nvim", priority = 1000 },
   { "sainnhe/gruvbox-material", priority = 1000 },
   { "sainnhe/everforest", priority = 1000 },
   { "sainnhe/sonokai", priority = 1000 },
   { "rafamadriz/neon", priority = 1000 },
-  { 'Th3Whit3Wolf/onebuddy',
-    dependencies = {
-      'tjdevries/colorbuddy.vim',
-    },
-  },
-  { "Th3Whit3Wolf/one-nvim" },
-  { "navarasu/onedark.nvim" },
+  { 'Th3Whit3Wolf/onebuddy', priority = 1000,  dependencies = { 'tjdevries/colorbuddy.vim', }, },
+  { "Th3Whit3Wolf/one-nvim", priority = 1000},
+  { "navarasu/onedark.nvim", priority = 1000},
   ----- Comments -----
   'tomtom/tcomment_vim',
 
@@ -143,14 +139,14 @@ require('lazy').setup({
   -- Noice & Notify
   {
     "folke/noice.nvim",
-    -- event = "VeryLazy",
+    event = "VeryLazy",
     opts = {
       -- add any options here
     },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+      -- "rcarriga/nvim-notify",
       }
   },
 
@@ -171,6 +167,8 @@ require('lazy').setup({
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
   },
+  -- Sorting
+  { 'sQVe/sort.nvim', event = "VeryLazy" },
   -- Gitlab plugin
   -- {
   -- url = "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
