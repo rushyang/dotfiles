@@ -1,8 +1,18 @@
 # Print the current date.
 
-# TMUX_POWERLINE_SEG_DATE_FORMAT_DEFAULT="%F"
-TMUX_POWERLINE_SEG_DATE_FORMAT_DEFAULT="%d-%b %a"
-# TMUX_POWERLINE_SEG_DATE_FORMAT_DEFAULT="%A"
+day=$(date '+%d')
+suffix=""
+case $day in
+  1[123]) suffix="th";;
+  *1) suffix="st";;
+  *2) suffix="nd";;
+  *3) suffix="rd";;
+  *) suffix="th";;
+esac
+formatted_date=$(date "+%a, $day$suffix %b")
+
+# TMUX_POWERLINE_SEG_DATE_FORMAT_DEFAULT="%d-%b %a"
+ TMUX_POWERLINE_SEG_DATE_FORMAT_DEFAULT="$formatted_date"
 
 generate_segmentrc() {
 	read -d '' rccontents  << EORC
