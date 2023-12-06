@@ -26,23 +26,23 @@ require('lazy').setup({
       },
     },
   },
-  'junegunn/fzf',
-  'junegunn/fzf.vim',
+  {'junegunn/fzf', event = 'VeryLazy' },
+  {'junegunn/fzf.vim', event = 'VeryLazy'},
 
   ----- Git Tools----
-  'tpope/vim-fugitive',
-  'lewis6991/gitsigns.nvim',
+  { 'tpope/vim-fugitive', event = 'VeryLazy' },
+  { 'lewis6991/gitsigns.nvim', event = 'VeryLazy' },
   { 'sindrets/diffview.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, },
-  'olacin/telescope-cc.nvim',
-  'pabloariasal/webify.nvim',
+  { 'olacin/telescope-cc.nvim', event = 'VeryLazy' },
+  { 'pabloariasal/webify.nvim', event = 'VeryLazy' },
 
   ----- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  { 'tpope/vim-sleuth', event = 'VeryLazy' },
 
   ----- File Managers
   -- (Ranger + Dependency)
-  'rbgrouleff/bclose.vim',
-  'francoiscabrol/ranger.vim',
+  { 'rbgrouleff/bclose.vim', event = 'VeryLazy' },
+  { 'francoiscabrol/ranger.vim', event = 'VeryLazy' },
   -- Oil
   {
   'stevearc/oil.nvim',
@@ -62,26 +62,27 @@ require('lazy').setup({
   },
 
   ----- Indent -----
-  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
+  { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy', main = "ibl", opts = {} },
 
   ----- Lualine -----
   'nvim-lualine/lualine.nvim',
 
   ----- Colorschemes ----
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-  { 'folke/tokyonight.nvim', name = 'tokyonight', priority = 1000 },
-  { 'rafamadriz/neon', priority = 1000 },
-  { 'sainnhe/edge', priority = 1000 },
-  { "tiagovla/tokyodark.nvim", priority = 1000 },
-  { "rebelot/kanagawa.nvim", priority = 1000 },
-  { "ellisonleao/gruvbox.nvim", priority = 1000 },
-  { "sainnhe/gruvbox-material", priority = 1000 },
-  { "sainnhe/everforest", priority = 1000 },
-  { "sainnhe/sonokai", priority = 1000 },
-  { "rafamadriz/neon", priority = 1000 },
-  { 'Th3Whit3Wolf/onebuddy', priority = 1000,  dependencies = { 'tjdevries/colorbuddy.vim', }, },
-  { "Th3Whit3Wolf/one-nvim", priority = 1000},
+  -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  -- { 'folke/tokyonight.nvim', name = 'tokyonight', priority = 1000 },
+  -- { 'rafamadriz/neon', priority = 1000 },
+  -- { 'sainnhe/edge', priority = 1000 },
+  -- { "tiagovla/tokyodark.nvim", priority = 1000 },
+  -- { "rebelot/kanagawa.nvim", priority = 1000 },
+  -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
+  -- { "sainnhe/gruvbox-material", priority = 1000 },
+  -- { "sainnhe/everforest", priority = 1000 },
+  -- { "sainnhe/sonokai", priority = 1000 },
+  -- { 'Th3Whit3Wolf/onebuddy', priority = 1000,  dependencies = { 'tjdevries/colorbuddy.vim', }, },
+  -- { "Th3Whit3Wolf/one-nvim", priority = 1000},
   { "navarasu/onedark.nvim", priority = 1000},
+  { "oxfist/night-owl.nvim", priority = 1000},
+  { "theniceboy/nvim-deus", priority = 1000},
   ----- Comments -----
   'tomtom/tcomment_vim',
 
@@ -89,18 +90,18 @@ require('lazy').setup({
   { 'nvim-focus/focus.nvim', version = '*' },
 
   ----- WhiteSpace -----
-  "cappyzawa/trim.nvim",
+  { "cappyzawa/trim.nvim", event = 'VeryLazy' },
 
   ----- Github Copilot ----
-  'github/copilot.vim',
+  { 'github/copilot.vim', event = 'VeryLazy' },
 
   -- Coc.nvim for Language Server Protocol support
-  { 'neoclide/coc.nvim', branch = 'release' },
+  { 'neoclide/coc.nvim', event = 'VeryLazy', branch = 'release' },
 
   -- Coc extensions
-  { 'neoclide/coc-lists', run = 'yarn install --frozen-lockfile' },
-  { 'neoclide/coc-yaml', run = 'yarn install --frozen-lockfile' },
-  { 'neoclide/coc-python', run = 'yarn install --frozen-lockfile' },
+  { 'neoclide/coc-lists', event = 'VeryLazy', run = 'yarn install --frozen-lockfile' },
+  { 'neoclide/coc-yaml', event = 'VeryLazy', run = 'yarn install --frozen-lockfile' },
+  { 'neoclide/coc-python', event = 'VeryLazy', run = 'yarn install --frozen-lockfile' },
 
   -- LSP Configuration & Plugins
   {
@@ -139,7 +140,6 @@ require('lazy').setup({
   -- Noice & Notify
   {
     "folke/noice.nvim",
-    event = "VeryLazy",
     opts = {
       -- add any options here
     },
@@ -151,10 +151,10 @@ require('lazy').setup({
   },
 
   -- Auto-pairs
-  'windwp/nvim-autopairs',
+  { 'windwp/nvim-autopairs', event = 'VeryLazy' },
 
   -- NvimTab names (Tabby)
-  'nanozuki/tabby.nvim',
+  { 'nanozuki/tabby.nvim', event = 'VeryLazy' },
 
   -- Startify
   'mhinz/vim-startify',
@@ -163,12 +163,15 @@ require('lazy').setup({
   -- install without yarn or npm
   {
     "iamcco/markdown-preview.nvim",
+    event = 'VeryLazy',
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
   },
   -- Sorting
   { 'sQVe/sort.nvim', event = "VeryLazy" },
+  -- Colorizer
+  { 'norcalli/nvim-colorizer.lua', event = 'VeryLazy' },
   -- Gitlab plugin
   -- {
   -- url = "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
