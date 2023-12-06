@@ -1,6 +1,6 @@
 -- Highlight Normal - Sets background to NONE
 -- vim.cmd([[highlight Normal ctermbg=NONE guibg=NONE]])
-vim.cmd([[highlight Normal ctermbg=NONE guibg=#0b161f]])
+vim.cmd([[highlight Normal ctermbg=NONE guibg=#0f111a]])
 
 -- Highlight NonText
 vim.cmd([[highlight NonText guibg=NONE ctermbg=NONE]])
@@ -13,9 +13,6 @@ vim.cmd([[highlight SignColumn guibg=NONE ctermbg=NONE]])
 
 -- Auto command for TermOpen
 vim.cmd([[autocmd TermOpen * setlocal nonumber norelativenumber]])
-
--- Set g:neodark#solid_vertsplit to 1
--- vim.g.neodark_solid_vertsplit = "1"
 
 -- Highlight Visual
 vim.cmd([[highlight Visual guifg=#000000 guibg=#FFFFFF gui=none]])

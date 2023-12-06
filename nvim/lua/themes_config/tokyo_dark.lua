@@ -49,4 +49,4 @@ on_colors = function(colors) end,
 on_highlights = function(highlights, colors) end,
 })
 
-vim.cmd [[ colorscheme tokyodark ]]
+vim.cmd [[ colorscheme tokyonight ]]

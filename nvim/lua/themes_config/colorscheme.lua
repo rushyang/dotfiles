@@ -4,5 +4,5 @@ vim.o.termguicolors = true
 -- carbonfox, tokyonight-night, catppuccin-macchiato, nightfox and onedark is really good so far
 -- moonfly and nightfly are not good as thick line shows up between panes
 
--- Groovbox config:
-vim.cmd [[ colorscheme nord ]]
+vim.cmd.colorscheme("deus")
+-- vim.cmd.colorscheme("night-owl")

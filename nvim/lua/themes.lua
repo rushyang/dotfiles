@@ -10,5 +10,5 @@
 -- require("themes_config.onebuddy")
 require("themes_config.onedark")
 -- require("themes_config.sonokai")
-require("themes_config.themes_overrides")
 -- require("themes_config.tokyo_dark")
+require("themes_config.themes_overrides")
