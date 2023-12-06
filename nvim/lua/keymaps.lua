@@ -27,8 +27,8 @@ keymap("n", "<Leader>v", [[<Cmd>vertical split<CR>]], _Eopts({desc = "Vertical S
 keymap("n", "<M-1>", "<C-w>H", _Eopts({desc = "Move Horizontal split to Vertical"}))
 keymap("n", "<M-2>", "<C-w>K", _Eopts({desc = "Move Vertical split to Horizontal"}))
 keymap("n", "<C-Space>r", "<C-w><C-r>", _Eopts({desc = "Interchange Buffers"}))
-keymap("n", "<C-Space>_", ":wincmd |<CR>", _Eopts({desc = "Vertical Maximize"}))
-keymap("n", "<C-Space>|", ":wincmd _<CR>", _Eopts({desc = "Horizontal Maximize"}))
+keymap("n", "<C-Space>_", ":wincmd |<CR>", _Eopts({desc = "Horizontal Maximize"}))
+keymap("n", "<C-Space>|", ":wincmd _<CR>", _Eopts({desc = "Vertical Maximize"}))
 keymap("n", '<C-Space>+', [[:wincmd _ | :wincmd |<CR>]], _Eopts({desc = "Maximize"}))
 keymap("n", "<C-Right>", [[<Cmd>:vertical resize +3<CR>]], _Eopts({desc = "Vertical Resize +3"}))
 keymap("n", "<C-Left>", [[<Cmd>:vertical resize -3<CR>]], _Eopts({desc = "Vertical Resize -3"}))
@@ -54,23 +54,14 @@ keymap("n", ")", ":tabnext<CR>", optns)
 keymap("n", "(", ":tabprevious<CR>", optns)
 keymap("n", "<C-t>", ":tabnew<CR>", optns)
 keymap("n", "<M-t>", ":tabnew | Ranger <CR>", optns)
-keymap("n", "<C-Space>1", "1gt", _Eopts({desc = "Go to Neovim Tab# 1"}))
-keymap("n", "<C-Space>2", "2gt", _Eopts({desc = "Go to Neovim Tab# 2"}))
-keymap("n", "<C-Space>3", "3gt", _Eopts({desc = "Go to Neovim Tab# 3"}))
-keymap("n", "<C-Space>4", "4gt", _Eopts({desc = "Go to Neovim Tab# 4"}))
-keymap("n", "<C-Space>5", "5gt", _Eopts({desc = "Go to Neovim Tab# 5"}))
-keymap("n", "<C-Space>6", "6gt", _Eopts({desc = "Go to Neovim Tab# 6"}))
-keymap("n", "<C-Space>7", "7gt", _Eopts({desc = "Go to Neovim Tab# 7"}))
-keymap("n", "<C-Space>8", "8gt", _Eopts({desc = "Go to Neovim Tab# 8"}))
-keymap("n", "<C-Space>9", "9gt", _Eopts({desc = "Go to Neovim Tab# 9"}))
 keymap("n", "}", ":bnext<CR>", _Eopts({desc = "Next Buffer"}))
 keymap("n", "{", ":bprevious<CR>", _Eopts({desc = "Previous Buffer"}))
 keymap("n", "_", ":bdelete<CR>", _Eopts({desc = "Delete Buffer"}))
 
 -- (N) Save and Exit
 keymap("n", "<C-q>", ":q<CR>", _Eopts({desc = "[Q]uit current buffer"}))
-keymap("n", "<Leader><C-q>", ":q<CR>", _Eopts({desc = "[Quit] current buffer"}))
 keymap("n", "<C-w>", ":w<CR>", _Eopts({desc = "[W]rite current buffer"}))
+keymap("n", "<M-Q>", ":wq<CR>", _Eopts({desc = "Save and Exit"}))
 
 -- (N) Diff mode / Fugitive / Diffview
 keymap("n", "<Leader>d", [[<Cmd>windo diffthis<CR>]], _Eopts({desc = "Start [D]iff two buffers"}))
@@ -86,7 +77,7 @@ keymap("n", "L", "]c", _Eopts({desc = "Go to Next hunk or Diffview change"}))
 keymap("n", "<Leader>cc",':lua _Create_conventional_commit()<CR>', _Eopts({desc = "Create a conventional commit"}))
 
 -- (N) Toggles
-keymap("n", "<C-Space><C-\\>", [[<Cmd>setlocal nonumber! | IndentBlanklineToggle <CR>]], optns)
+keymap("n", "<C-Space><C-\\>", [[<Cmd>setlocal nonumber! | IBLToggle <CR>]], optns)
 keymap("n", "<C-Space>ww", ":set wrap!<CR>", optns)
 keymap("n", "<C-Space><C-s>", ":set scrollbind! scrollbind?<CR>", optns)
 keymap('n', '<F2>', ':lua toggle_CoC()<CR>', _Eopts({desc = "CoC Toggle"}))
@@ -97,19 +88,20 @@ keymap("n", "<F6>", ":lua toggle_Noice()<CR>", _Eopts({desc = "Noice Toggle"}))
 
 -- (N) Misc
 keymap("n", "Q", "q", optns)
--- keymap("n", "<C-Space>s", ":source $MYVIMRC<CR>", optns)
-keymap("n", "<Leader><C-w>", ":StripWhitespace<CR>", _Eopts({desc = "Strip Whitespaces"}))
-keymap("n", "<C-Space>in", ":IndentBlanklineToggle<CR>", _Eopts({desc = "IndentBlankline Toggle"}))
+keymap("n", "<M-R>", ":luafile ~/.config/nvim/init.lua<CR>", optns)
+keymap("n", "<C-Space>in", ":IBLToggle<CR>", _Eopts({desc = "IndentBlankline Toggle"}))
 keymap("n", "<Leader>co", ":Copilot<CR>", _Eopts({desc = "Invoking Copilot"}))
-keymap("n", "<Leader><C-g>", "<Plug>(GitlabToggleCodeSuggestions)", _Eopts({desc = "Toggle Gitlab Code Suggestions"}))
-keymap("n", "<C-Space>S", ":Startify<CR>", _Eopts({desc = "Open startify"}))
+-- keymap("n", "<Leader><C-g>", "<Plug>(GitlabToggleCodeSuggestions)", _Eopts({desc = "Toggle Gitlab Code Suggestions"}))
+keymap("n", "<C-Space>C", ":ColorizerToggle<CR>", _Eopts({desc = "Toggle Colorizer"}))
 keymap("n", "<C-Space>M", ":MarkdownPreview<CR>", _Eopts({desc = "Markdown Preview"}))
+keymap("n", "<C-Space>S", ":Startify<CR>", _Eopts({desc = "Open startify"}))
 
 -- Insert Mode
 -- (I) Change insert mode key:
 keymap("i", "jj", "<Esc>`^", opts)
 keymap("i", "kk", "<Esc>`^", opts)
-keymap("i", "ll", "<Esc>`^", opts)
+keymap("i", "lll", "<Esc>`^", opts)
+keymap("i", "hhh", "<Esc>`^", opts)
 
 -- Visual Mode
 keymap("v", "<F6>", "y<c-w>wp<c-w>pgv", _Eopts({desc = "Text Movement from one pane to another"}))
