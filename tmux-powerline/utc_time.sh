@@ -1,6 +1,6 @@
 # Prints the current time in UTC.
 
-TMUX_POWERLINE_SEG_UTC_TIME_FORMAT_DEFAULT="%H:%M:%S%p %Z"
+TMUX_POWERLINE_SEG_UTC_TIME_FORMAT_DEFAULT="%I:%M:%S%p %Z"
 
 generate_segmentrc() {
 	read -d '' rccontents  << EORC

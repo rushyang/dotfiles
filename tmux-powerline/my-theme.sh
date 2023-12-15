@@ -42,7 +42,7 @@ fi
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
 		"#[$(format regular)]" \
-		"  #I#{?window_flags,#F,}" \
+		"  #I#{?window_flags,#F, }" \
 		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
 		" #W"
 	)
@@ -77,7 +77,7 @@ fi
 
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info 148 234" \
+		"tmux_session_info 148 232" \
 		# "hostname 238 255" \
 		# "pwd 240 255" \
 		#"ifstat 30 255" \
@@ -94,13 +94,13 @@ fi
 
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-		#"earthquake 3 0" \
+		# "earthquake 3 0" \
 		# "pwd 240 255" \
 		#"macos_notification_count 29 255" \
 		#"mailcount 9 255" \
 		# "now_playing 234 37" \
 		# "cpu 235 136" \
-		"load 235 167 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		"load 124 231 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
 		# "tmux_mem_cpu_load 234 136" \
 		# "battery 137 127" \
 		# "weather 37 255" \
@@ -111,9 +111,8 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		## "vcs_staged 235 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		## "vcs_modified 237 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		# "date_day 235 46 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"time 235 226 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"utc_time 235 46 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		# "date 235 111 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"date 234 148 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		"utc_time 214 232 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
+		"time 24 231 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
+		"date 148 17 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
 	)
 fi
