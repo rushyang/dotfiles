@@ -18,7 +18,8 @@ require('onedark').setup {
     -- Default color overrides
     colors = {
         purple = "#8c68ba", -- Making defualt purple little more darker
-        fg = "#a0a8b7",
+        fg = "#d8d3ba",
+        -- fg = "#a0a8b7",
         -- fg = "#d4c5a7",
         -- red = "#f65866",
     },

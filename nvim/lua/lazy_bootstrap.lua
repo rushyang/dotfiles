@@ -92,9 +92,6 @@ require('lazy').setup({
   ----- WhiteSpace -----
   { "cappyzawa/trim.nvim", event = 'VeryLazy' },
 
-  ----- Github Copilot ----
-  { 'github/copilot.vim', event = 'VeryLazy' },
-
   -- Coc.nvim for Language Server Protocol support
   { 'neoclide/coc.nvim', event = 'VeryLazy', branch = 'release' },
 
@@ -168,13 +165,17 @@ require('lazy').setup({
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
   },
-  -- Sorting
-  { 'sQVe/sort.nvim', event = "VeryLazy" },
-  -- Colorizer
-  { 'norcalli/nvim-colorizer.lua', event = 'VeryLazy' },
+  -- AI
+  ----- Github Copilot ----
+  { 'github/copilot.vim', event = 'VeryLazy' },
+
   -- Gitlab plugin
   -- {
   -- url = "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
   -- lazy = false,
   -- },
+  -- Sorting
+  { 'sQVe/sort.nvim', event = "VeryLazy" },
+  -- Colorizer
+  { 'norcalli/nvim-colorizer.lua', event = 'VeryLazy' },
 }, {})
