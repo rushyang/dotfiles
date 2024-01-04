@@ -78,5 +78,12 @@ o.foldlevel = 1
 -- Paste Toggle
 o.pastetoggle = '<F4>'
 
+-- Try increasing speed of the cursor
+vim.api.nvim_set_option('keymap', 'nvi-blank delay=100 rate=30')
+vim.o.timeoutlen = 500
+
+-- Set cursor as block
+vim.o.guicursor = "a:Block"
+
 -- Tabline
 -- o.showtabline = 2

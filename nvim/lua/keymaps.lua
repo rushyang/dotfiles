@@ -110,7 +110,8 @@ keymap("v", "<F6>", "y<c-w>wp<c-w>pgv", _Eopts({desc = "Text Movement from one p
 keymap("v", "<C-h>", "^", _Eopts({desc = "Move to start of line in visual mode"}))
 keymap("v", "<C-l>", "$<Left>", _Eopts({desc = "Move to end of line in visual mode"}))
 keymap("v", "y", "\"+y", _Eopts({desc = "Copy to System buffer"}))
-
+keymap('v', '<M-j>', ":m '>+1<CR>gv=gv", _Eopts({desc = "Move one line below"}))
+keymap('v', '<M-k>', ":m '<-2<CR>gv=gv", _Eopts({desc = "Move one line up"}))
 -- Terminal Mode
 -- keymap("t", "<Esc>", "<C-\\><C-n>:let g:isInsert=0<CR>", optns)
 

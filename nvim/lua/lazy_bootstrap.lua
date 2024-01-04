@@ -71,20 +71,20 @@ require('lazy').setup({
   ----- Colorschemes ----
   -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   { 'EdenEast/nightfox.nvim', priority = 1000 },
-  -- { 'folke/tokyonight.nvim', name = 'tokyonight', priority = 1000 },
+  { 'folke/tokyonight.nvim', name = 'tokyonight', priority = 1000 },
   { 'rafamadriz/neon', priority = 1000 },
-  -- { 'sainnhe/edge', priority = 1000 },
-  -- { "tiagovla/tokyodark.nvim", priority = 1000 },
-  -- { "rebelot/kanagawa.nvim", priority = 1000 },
-  -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
-  -- { "sainnhe/gruvbox-material", priority = 1000 },
+  { 'sainnhe/edge', priority = 1000 },
+  { "tiagovla/tokyodark.nvim", priority = 1000 },
+   { "rebelot/kanagawa.nvim", priority = 1000 },
+  { "ellisonleao/gruvbox.nvim", priority = 1000 },
+  { "sainnhe/gruvbox-material", priority = 1000 },
   -- { "sainnhe/everforest", priority = 1000 },
-  -- { "sainnhe/sonokai", priority = 1000 },
-  -- { 'Th3Whit3Wolf/onebuddy', priority = 1000,  dependencies = { 'tjdevries/colorbuddy.vim', }, },
-  -- { "Th3Whit3Wolf/one-nvim", priority = 1000},
+  { "sainnhe/sonokai", priority = 1000 },
+  { 'Th3Whit3Wolf/onebuddy', priority = 1000,  dependencies = { 'tjdevries/colorbuddy.vim', }, },
+  { "Th3Whit3Wolf/one-nvim", priority = 1000},
   { "navarasu/onedark.nvim", priority = 1000},
-  -- { "oxfist/night-owl.nvim", priority = 1000},
-  -- { "theniceboy/nvim-deus", priority = 1000},
+  { "oxfist/night-owl.nvim", priority = 1000},
+  { "theniceboy/nvim-deus", priority = 1000},
   ----- Comments -----
   'tomtom/tcomment_vim',
 
@@ -157,6 +157,16 @@ require('lazy').setup({
 
   -- Startify
   'mhinz/vim-startify',
+  -- {
+  --   'nvimdev/dashboard-nvim',
+  --   event = 'VimEnter',
+  --   config = function()
+  --     require('dashboard').setup {
+  --       -- config
+  --     }
+  --   end,
+  --   dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  -- },
 
   --  Markdown-preview
   -- install without yarn or npm
@@ -170,6 +180,19 @@ require('lazy').setup({
   -- AI
   ----- Github Copilot ----
   { 'github/copilot.vim', event = 'VeryLazy' },
+
+  -- CodeGPT --
+  {
+    "dpayne/CodeGPT.nvim",
+     event = 'VeryLazy',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+        require("codegpt.config")
+    end
+  },
 
   -- Gitlab plugin
   -- {
