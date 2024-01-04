@@ -15,7 +15,7 @@ vim.cmd([[highlight SignColumn guibg=NONE ctermbg=NONE]])
 vim.cmd([[autocmd TermOpen * setlocal nonumber norelativenumber]])
 
 -- Highlight Visual
-vim.cmd([[highlight Visual guifg=#000000 guibg=#FFFFFF gui=none]])
+vim.cmd([[highlight Visual guifg=#FFFFFF guibg=#585858 gui=none]])
 
 -- Set $NVIM_TUI_ENABLE_TRUE_COLOR to 1
 vim.env["NVIM_TUI_ENABLE_TRUE_COLOR"] = "1"
@@ -29,18 +29,29 @@ if not vim.fn.has('gui_running') then
 end
 
 -- Diffmode
+
+-- List of invert themes to check
+local invert_themes = { "neon" }
+
+if vim.fn.index(invert_themes, vim.g.colors_name) ~= -1 then
+  -- Lines
+  vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=black guibg=Grey82')
+  -- To change the background of removed lines to red
+  vim.cmd('highlight DiffDelete ctermfg=NONE ctermbg=NONE guifg=black guibg=red')
+  -- To change the background of removed lines
+  vim.cmd('highlight DiffAdd ctermfg=NONE ctermbg=NONE guifg=DarkGreen guibg=LightCyan1')
+  -- Just Changed "text" within lines
+  vim.cmd('highlight DiffText guifg=DarkRed guibg=Yellow1')
+else
+  -- Lines
+  vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey82 guibg=black')
+  -- To change the background of removed lines to red
+  vim.cmd('highlight DiffDelete ctermfg=NONE ctermbg=NONE guifg=red guibg=black')
+  -- To change the background of removed lines
+  vim.cmd('highlight DiffAdd ctermfg=NONE ctermbg=NONE guifg=LightCyan1 guibg=DarkGreen')
 -- Just Changed "text" within lines
 vim.cmd('highlight DiffText guifg=Yellow1 guibg=DarkRed')
-
--- Lines
--- vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey82 guibg=Grey0')
-vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey82 guibg=black')
-
--- To change the background of removed lines to red
-vim.cmd('highlight DiffDelete ctermfg=NONE ctermbg=NONE guifg=red guibg=black')
-
--- To change the background of removed lines
-vim.cmd('highlight DiffAdd ctermfg=NONE ctermbg=NONE guifg=LightCyan1 guibg=DarkGreen')
+end
 
 -- Override LspDiagnostics colors
   -- hi DiagnosticError guifg=#43616b
