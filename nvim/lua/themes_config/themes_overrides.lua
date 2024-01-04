@@ -15,7 +15,7 @@ vim.cmd([[highlight SignColumn guibg=NONE ctermbg=NONE]])
 vim.cmd([[autocmd TermOpen * setlocal nonumber norelativenumber]])
 
 -- Highlight Visual
-vim.cmd([[highlight Visual guifg=#FFFFFF guibg=#585858 gui=none]])
+vim.cmd([[highlight Visual guifg=#FFFFFF guibg=DarkKhaki gui=none]])
 
 -- Set $NVIM_TUI_ENABLE_TRUE_COLOR to 1
 vim.env["NVIM_TUI_ENABLE_TRUE_COLOR"] = "1"

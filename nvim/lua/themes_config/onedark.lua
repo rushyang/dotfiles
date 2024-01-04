@@ -1,15 +1,15 @@
 -- Lua
 require('onedark').setup {
-    style = 'warmer', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'cool', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     term_colors = true, -- Change terminal color as per the selected theme style
 
     -- toggle theme style ---
     toggle_style_key = "<C-Space>s", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-    toggle_style_list = {'darker', 'deep', 'warmer'}, -- List of styles to toggle between
+    toggle_style_list = {'darker', 'deep', 'warmer', 'cool'}, -- List of styles to toggle between
 
     code_style = {
         comments = 'italic',
-        keywords = 'none',
+        keywords = 'italic,bold',
         functions = 'none',
         strings = 'none',
         variables = 'none'
@@ -17,11 +17,9 @@ require('onedark').setup {
 
     -- Default color overrides
     colors = {
-        purple = "#8c68ba", -- Making defualt purple little more darker
+        purple = "#8c68ba", -- Making default purple little more darker
         fg = "#d8d3ba",
         -- fg = "#a0a8b7",
-        -- fg = "#d4c5a7",
-        -- red = "#f65866",
     },
     -- Lualine options --
     lualine = {
