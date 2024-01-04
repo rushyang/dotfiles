@@ -45,7 +45,7 @@ keymap("n", "<C-Space><C-b>", [[<Cmd>vertical split | :Telescope buffers<CR>]], 
 keymap("n", "<Leader>r", ":Ranger<CR>", _Eopts({desc = "Open Ranger in current buffer"}))
 keymap("n", "<C-Space><C-l>", ":vertical split | :Ranger<CR>", _Eopts({desc = "Vertical Split and Open Ranger"}))
 keymap("n", "<Leader>g", [[<Cmd>Telescope git_files<CR>]], _Eopts({desc = "Fuzzy search of files in current Git project"}))
-keymap("n", "<C-Space><C-g>", [[<Cmd>vertical_split | :Telescope git_files<CR>]], _Eopts({desc = "Vertical Split and fuzzy search of files in current Git project"}))
+keymap("n", "<C-Space><C-g>", [[<Cmd>vertical split | :Telescope git_files<CR>]], _Eopts({desc = "Vertical Split and fuzzy search of files in current Git project"}))
 keymap("n", "<Leader>t", '<Cmd>lua telescope_live_grep_in_git_project()<CR>', _Eopts({desc = "Live grep in Git Project"}))
 keymap("n", "<Leader>k", '<Cmd>Telescope keymaps <CR>', _Eopts({desc = "Open Telescope [k]eymaps"}))
 
@@ -85,14 +85,15 @@ keymap('n', '<F3>', ':FocusToggle<CR>', _Eopts({desc = "Focus Toggle"}))
 keymap("n", "<F4>", ":lua toggle_Lsp()<CR>", _Eopts({desc = "Lsp Toggle"}))
 keymap("n", "<F5>", ":set spell!<CR>", _Eopts({desc = "Spell Check Toggle"}))
 keymap("n", "<F6>", ":lua toggle_Noice()<CR>", _Eopts({desc = "Noice Toggle"}))
+keymap("n", "<C-Space>C", ":ColorizerToggle<CR>", _Eopts({desc = "ColorizerToggle"}))
 
 -- (N) Misc
 keymap("n", "Q", "q", optns)
-keymap("n", "<M-R>", ":luafile ~/.config/nvim/init.lua<CR>", optns)
+keymap("n", "<M-R>", ":luafile ~/.config/nvim/init.lua<CR>", _Eopts({desc = "Load init.lua"}))
+keymap("n", "<M-T>", ":luafile ~/.config/nvim/lua/themes_config/themes_overrides.lua<CR>", _Eopts({desc = "Load theme overrides"}))
 keymap("n", "<C-Space>in", ":IBLToggle<CR>", _Eopts({desc = "IndentBlankline Toggle"}))
 keymap("n", "<Leader>co", ":Copilot<CR>", _Eopts({desc = "Invoking Copilot"}))
 -- keymap("n", "<Leader><C-g>", "<Plug>(GitlabToggleCodeSuggestions)", _Eopts({desc = "Toggle Gitlab Code Suggestions"}))
-keymap("n", "<C-Space>C", ":ColorizerToggle<CR>", _Eopts({desc = "Toggle Colorizer"}))
 keymap("n", "<C-Space>M", ":MarkdownPreview<CR>", _Eopts({desc = "Markdown Preview"}))
 keymap("n", "<C-Space>S", ":Startify<CR>", _Eopts({desc = "Open startify"}))
 
@@ -102,6 +103,7 @@ keymap("i", "jj", "<Esc>`^", opts)
 keymap("i", "kk", "<Esc>`^", opts)
 keymap("i", "lll", "<Esc>`^", opts)
 keymap("i", "hhh", "<Esc>`^", opts)
+keymap('i', '<M-j>', 'copilot#Accept("<CR>")', { silent = true, expr = true, script = true})
 
 -- Visual Mode
 keymap("v", "<F6>", "y<c-w>wp<c-w>pgv", _Eopts({desc = "Text Movement from one pane to another"}))

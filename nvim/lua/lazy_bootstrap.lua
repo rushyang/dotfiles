@@ -31,7 +31,7 @@ require('lazy').setup({
 
   ----- Git Tools----
   { 'tpope/vim-fugitive', event = 'VeryLazy' },
-  { 'lewis6991/gitsigns.nvim', event = 'VeryLazy' },
+  { 'lewis6991/gitsigns.nvim' },
   { 'sindrets/diffview.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, },
   { 'olacin/telescope-cc.nvim', event = 'VeryLazy' },
   { 'pabloariasal/webify.nvim', event = 'VeryLazy' },
@@ -46,6 +46,7 @@ require('lazy').setup({
   -- Oil
   {
   'stevearc/oil.nvim',
+  event = 'VeryLazy',
   opts = {},
   },
 
@@ -69,8 +70,9 @@ require('lazy').setup({
 
   ----- Colorschemes ----
   -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'EdenEast/nightfox.nvim', priority = 1000 },
   -- { 'folke/tokyonight.nvim', name = 'tokyonight', priority = 1000 },
-  -- { 'rafamadriz/neon', priority = 1000 },
+  { 'rafamadriz/neon', priority = 1000 },
   -- { 'sainnhe/edge', priority = 1000 },
   -- { "tiagovla/tokyodark.nvim", priority = 1000 },
   -- { "rebelot/kanagawa.nvim", priority = 1000 },
@@ -81,8 +83,8 @@ require('lazy').setup({
   -- { 'Th3Whit3Wolf/onebuddy', priority = 1000,  dependencies = { 'tjdevries/colorbuddy.vim', }, },
   -- { "Th3Whit3Wolf/one-nvim", priority = 1000},
   { "navarasu/onedark.nvim", priority = 1000},
-  { "oxfist/night-owl.nvim", priority = 1000},
-  { "theniceboy/nvim-deus", priority = 1000},
+  -- { "oxfist/night-owl.nvim", priority = 1000},
+  -- { "theniceboy/nvim-deus", priority = 1000},
   ----- Comments -----
   'tomtom/tcomment_vim',
 
