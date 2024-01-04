@@ -128,7 +128,9 @@ ins_left {
 ins_left {
   -- mode component
   function()
-    return '💻'
+    -- return '💻'
+    return '🚀'
+    -- return '✨'
   end,
   color = dynamic_mode_color,
   padding = { left = 1, right = 1 },
