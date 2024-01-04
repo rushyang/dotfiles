@@ -5,6 +5,10 @@ if patched_font_in_use; then
 	TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
 	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
 	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
+	# TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
+	# TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
+	# TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
+	# TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
 else
 	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="◀"
 	TMUX_POWERLINE_SEPARATOR_LEFT_THIN="❮"
@@ -13,7 +17,7 @@ else
 fi
 
 TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-'235'}
-TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR:-'111'}
+TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR:-'214'}
 
 TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD}
 TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}
@@ -62,7 +66,6 @@ fi
 #   * "right_disable" - disable space on the right
 #   * "both_disable" - disable spaces on both sides
 #   * - any other character/string produces no change to default behavior (eg "none", "X", etc.)
-#
 # * separator_disable - disables drawing a separator on this segment, very useful for segments
 #   with dynamic background colours (eg tmux_mem_cpu_load):
 #   * "separator_disable" - disables the separator
@@ -100,10 +103,10 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		#"mailcount 9 255" \
 		# "now_playing 234 37" \
 		# "cpu 235 136" \
-		"load 124 231 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
-		# "tmux_mem_cpu_load 234 136" \
+		# "load 124 231 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
+		# "tmux_mem_cpu_load 124 231 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
 		# "battery 137 127" \
-		"weather 31 255" \
+		"weather 60 255" \
 		# "rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
 		# "xkb_layout 125 117" \
 		## "vcs_branch 235 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
