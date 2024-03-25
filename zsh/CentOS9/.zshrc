@@ -113,10 +113,10 @@ DISABLE_AUTO_UPDATE="true"
 
 export ShellSupport=~/.Dot/ShellSupport
 
-if [ -f $ShellSupport/.zsh_aliases ]; then
-    source $ShellSupport/.zsh_aliases;
+if [ -f $ShellSupport/.zsh_entrypoint ]; then
+    source $ShellSupport/.zsh_entrypoint;
 else
-   echo '[FATAL] Could not find the main .zsh_alises for custom setup'
+   echo '[FATAL] Could not find the main .zsh_entrypoint for custom setup'
 fi
 source $ZSH/oh-my-zsh.sh
 
