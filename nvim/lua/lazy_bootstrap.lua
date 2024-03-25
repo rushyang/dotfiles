@@ -35,6 +35,7 @@ require('lazy').setup({
   { 'sindrets/diffview.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, },
   { 'olacin/telescope-cc.nvim', event = 'VeryLazy' },
   { 'pabloariasal/webify.nvim', event = 'VeryLazy' },
+  { 'ahmedkhalf/project.nvim' },      -- Telescope plugin to fuzzy find all git projects - recently opened
 
   ----- Detect tabstop and shiftwidth automatically
   { 'tpope/vim-sleuth', event = 'VeryLazy' },
