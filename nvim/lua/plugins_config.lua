@@ -1,6 +1,7 @@
 require("plugins_config.autopairs")
 require("plugins_config.Copilot")
 require("plugins_config.evil_lualine")
+require("plugins_config.fidget")
 require("plugins_config.focus")
 -- require("plugins_config.gitlab")
 require("plugins_config.gitsigns")
