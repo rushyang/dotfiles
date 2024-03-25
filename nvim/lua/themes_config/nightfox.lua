@@ -7,7 +7,7 @@ require('nightfox').setup({
     transparent = false,     -- Disable setting background
     terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
     dim_inactive = false,    -- Non focused panes set to alternative background
-    module_default = true,   -- Default enable value for modules
+    module_default = false,   -- Default enable value for modules
     colorblind = {
       enable = false,        -- Enable colorblind support
       simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
@@ -19,10 +19,10 @@ require('nightfox').setup({
     },
     styles = {               -- Style to be applied to different syntax groups
       comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
-      conditionals = "NONE",
+      conditionals = "bold",
       constants = "NONE",
-      functions = "bold",
-      keywords = "italic",
+      functions = "underline",
+      keywords = "italic,bold",
       numbers = "NONE",
       operators = "NONE",
       strings = "NONE",
@@ -35,7 +35,7 @@ require('nightfox').setup({
       search = false,
     },
     modules = {             -- List of various plugins and additional options
-      -- ...
+      diagnostic = false,   -- Disabling default diagnostics to be able to override LSPs from themes_overrides
     },
   },
   palettes = {
@@ -49,7 +49,19 @@ require('nightfox').setup({
       -- sel1 = "#0087af",
       magenta = "#8c68ba",
     },
-    carbonfox= {
+    carbonfox = {
+      -- bg1 = "#0f111a",
+      -- bg1 = "#000000",
+      -- fg1 = "#bab6a2",
+      fg1 = "#aba791",
+      pink = "#8c68ba",
+      fg3     = "#5f85b8", --Tabby color set to blue
+      -- blue = "#74a0db",
+      sel1 = "#005f87",
+      -- sel1 = "#0087af",
+      magenta = "#8c68ba",
+    },
+    duskfox = {
       bg1 = "#0f111a",
       fg1 = "#d8d3ba",
       pink = "#8c68ba",
@@ -57,11 +69,16 @@ require('nightfox').setup({
       magenta = "#8c68ba",
     },
   },
-  specs = {},
+  specs = {
+    carbonfox = {
+      syntax = {
+        number = "#f4a261",
+      }
+    }
+  },
   groups = {},
-
 })
 
--- setup must be called before loading
 -- vim.cmd("colorscheme nightfox")
 vim.cmd("colorscheme carbonfox")
+-- vim.cmd("colorscheme duskfox")

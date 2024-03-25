@@ -1,5 +1,7 @@
 vim.g.gruvbox_material_background = 'medium' -- soft/medium/hard
 vim.g.gruvbox_material_show_eob = 1
+vim.g.gruvbox_enable_italic = 1
+vim.g.gruvbox_material_current_word = 'bold'
 vim.g.gruvbox_material_dim_inactive_windows =  1
 vim.g.gruvbox_material_ui_contrast = 'low' --'low', 'high'
 vim.g.gruvbox_material_background = 'hard'

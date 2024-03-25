@@ -1,6 +1,7 @@
 -- Highlight Normal - Sets background to NONE
 -- vim.cmd([[highlight Normal ctermbg=NONE guibg=NONE]])
-vim.cmd([[highlight Normal ctermbg=NONE guibg=#0f111a]])
+-- vim.cmd([[highlight Normal ctermbg=NONE guibg=#0f111a]])
+vim.cmd([[highlight Normal ctermbg=NONE guibg=#080a12]])
 
 -- Highlight NonText
 vim.cmd([[highlight NonText guibg=NONE ctermbg=NONE]])
@@ -15,7 +16,8 @@ vim.cmd([[highlight SignColumn guibg=NONE ctermbg=NONE]])
 vim.cmd([[autocmd TermOpen * setlocal nonumber norelativenumber]])
 
 -- Highlight Visual
-vim.cmd([[highlight Visual guifg=#FFFFFF guibg=DarkKhaki gui=none]])
+-- vim.cmd([[highlight Visual guifg=Yellow1 guibg='#71839b' gui=none]])
+vim.cmd([[highlight Visual guifg='#dbc074' guibg='#3c5372' gui=none]])
 
 -- Set $NVIM_TUI_ENABLE_TRUE_COLOR to 1
 vim.env["NVIM_TUI_ENABLE_TRUE_COLOR"] = "1"
@@ -33,6 +35,7 @@ end
 -- List of invert themes to check
 local invert_themes = { "neon" }
 
+-- Default block
 if vim.fn.index(invert_themes, vim.g.colors_name) ~= -1 then
   -- Lines
   vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=black guibg=Grey82')
@@ -42,7 +45,7 @@ if vim.fn.index(invert_themes, vim.g.colors_name) ~= -1 then
   vim.cmd('highlight DiffAdd ctermfg=NONE ctermbg=NONE guifg=DarkGreen guibg=LightCyan1')
   -- Just Changed "text" within lines
   vim.cmd('highlight DiffText guifg=DarkRed guibg=Yellow1')
-else
+else -- invert_themes block
   -- Lines
   vim.cmd('highlight DiffChange ctermfg=NONE ctermbg=NONE guifg=Grey82 guibg=black')
   -- To change the background of removed lines to red
@@ -56,7 +59,7 @@ end
 -- Override LspDiagnostics colors
   -- hi DiagnosticError guifg=#43616b
 vim.cmd [[
-  hi DiagnosticError guifg=#a8832d
+  hi DiagnosticError guifg=#806425
   hi DiagnosticWarn guifg=#6c6c6c
   hi DiagnosticInfo guifg=#005f87
   hi DiagnosticHint guifg=#00af87

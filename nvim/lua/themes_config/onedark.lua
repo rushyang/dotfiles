@@ -10,7 +10,7 @@ require('onedark').setup {
     code_style = {
         comments = 'italic',
         keywords = 'italic,bold',
-        functions = 'none',
+        functions = 'underline',
         strings = 'none',
         variables = 'none'
     },
@@ -18,7 +18,8 @@ require('onedark').setup {
     -- Default color overrides
     colors = {
         purple = "#8c68ba", -- Making default purple little more darker
-        fg = "#d8d3ba",
+        -- fg = "#d8d3ba", -- Tabby color and normal text
+        fg = "#aba791",
         -- fg = "#a0a8b7",
     },
     -- Lualine options --

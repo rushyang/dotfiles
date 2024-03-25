@@ -23,7 +23,7 @@ require("catppuccin").setup({
         keywords = {},
         strings = {},
         variables = {},
-        numbers = {},
+        numbers = { "bold" },
         booleans = {},
         properties = {},
         types = {},
