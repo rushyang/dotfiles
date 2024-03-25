@@ -10,12 +10,14 @@ g.mapleader = " "
 g.maplocalleader = " "
 
 -- Normal Mode --
--- (N) Better Window Navigation
+-- (N) Text / Better Window Navigation
 keymap("n", "<C-h>", "<C-w>h", _Eopts({desc = "Go to Left Buffer"}))
 keymap("n", "<C-j>", "<C-w>j", _Eopts({desc = "Go to Below Buffer "}))
 keymap("n", "<C-k>", "<C-w>k", _Eopts({desc = "Go to Upper Buffer"}))
 keymap("n", "<C-l>", "<C-w>l", _Eopts({desc = "Go to Right Buffer"}))
 keymap("n", "dw", "daw", _Eopts({desc = "Delete a word around cursor"}))
+keymap("n", "gh", "^", _Eopts({desc = "Move to start of line in normal mode"}))
+keymap("n", "gl", "$<Left>", _Eopts({desc = "Move to end of line in normal mode"}))
 
 -- (N) Search Settings
 keymap("n", "ss", ":noh<CR>", _Eopts({desc = "Clear Search Highlight"}))
@@ -29,7 +31,7 @@ keymap("n", "<M-2>", "<C-w>K", _Eopts({desc = "Move Vertical split to Horizontal
 keymap("n", "<C-Space>r", "<C-w><C-r>", _Eopts({desc = "Interchange Buffers"}))
 keymap("n", "<C-Space>_", ":wincmd |<CR>", _Eopts({desc = "Horizontal Maximize"}))
 keymap("n", "<C-Space>|", ":wincmd _<CR>", _Eopts({desc = "Vertical Maximize"}))
-keymap("n", '<C-Space>+', [[:wincmd _ | :wincmd |<CR>]], _Eopts({desc = "Maximize"}))
+keymap("n", '<C-Space>+', [[:wincmd _ | :wincmd |<CR>]], _Eopts({desc = "Full Maximize"}))
 keymap("n", "<C-Right>", [[<Cmd>:vertical resize +3<CR>]], _Eopts({desc = "Vertical Resize +3"}))
 keymap("n", "<C-Left>", [[<Cmd>:vertical resize -3<CR>]], _Eopts({desc = "Vertical Resize -3"}))
 keymap("n", "<C-Up>", [[<Cmd>:horizontal resize +3<CR>]], _Eopts({desc = "Horizontal Resize +3"}))
@@ -48,12 +50,20 @@ keymap("n", "<Leader>g", [[<Cmd>Telescope git_files<CR>]], _Eopts({desc = "Fuzzy
 keymap("n", "<C-Space><C-g>", [[<Cmd>vertical split | :Telescope git_files<CR>]], _Eopts({desc = "Vertical Split and fuzzy search of files in current Git project"}))
 keymap("n", "<Leader>t", '<Cmd>lua telescope_live_grep_in_git_project()<CR>', _Eopts({desc = "Live grep in Git Project"}))
 keymap("n", "<Leader>k", '<Cmd>Telescope keymaps <CR>', _Eopts({desc = "Open Telescope [k]eymaps"}))
+keymap("n", "<Leader>fp", '<Cmd>Telescope projects<CR>', _Eopts({desc = "Telescope [F]ind [p]rojects"}))
+keymap("n", "<Leader>gs", '<Cmd>Telescope grep_string<CR>', _Eopts({desc = "Telescope [G]rep [S]tring"}))
 
 -- (N) New Tabs, Cycle through the tas and buffers
 keymap("n", ")", ":tabnext<CR>", optns)
 keymap("n", "(", ":tabprevious<CR>", optns)
 keymap("n", "<C-t>", ":tabnew<CR>", optns)
 keymap("n", "<M-t>", ":tabnew | Ranger <CR>", optns)
+keymap("n", "<M-h>", ":tabnew | lua require('telescope.builtin').oldfiles()<CR>", optns)
+keymap("n", "<C-Space>1", "1gt", _Eopts({desc = "Go to Neovim Tab# 1"}))
+keymap("n", "<C-Space>2", "2gt", _Eopts({desc = "Go to Neovim Tab# 2"}))
+keymap("n", "<C-Space>3", "3gt", _Eopts({desc = "Go to Neovim Tab# 3"}))
+keymap("n", "<C-Space>4", "4gt", _Eopts({desc = "Go to Neovim Tab# 4"}))
+keymap("n", "<C-Space>5", "5gt", _Eopts({desc = "Go to Neovim Tab# 5"}))
 keymap("n", "}", ":bnext<CR>", _Eopts({desc = "Next Buffer"}))
 keymap("n", "{", ":bprevious<CR>", _Eopts({desc = "Previous Buffer"}))
 keymap("n", "_", ":bdelete<CR>", _Eopts({desc = "Delete Buffer"}))
@@ -107,8 +117,8 @@ keymap('i', '<M-j>', 'copilot#Accept("<CR>")', { silent = true, expr = true, scr
 
 -- Visual Mode
 keymap("v", "<F6>", "y<c-w>wp<c-w>pgv", _Eopts({desc = "Text Movement from one pane to another"}))
-keymap("v", "<C-h>", "^", _Eopts({desc = "Move to start of line in visual mode"}))
-keymap("v", "<C-l>", "$<Left>", _Eopts({desc = "Move to end of line in visual mode"}))
+keymap("v", "gh", "^", _Eopts({desc = "Move to start of line in visual mode"}))
+keymap("v", "gl", "$<Left>", _Eopts({desc = "Move to end of line in visual mode"}))
 keymap("v", "y", "\"+y", _Eopts({desc = "Copy to System buffer"}))
 keymap('v', '<M-j>', ":m '>+1<CR>gv=gv", _Eopts({desc = "Move one line below"}))
 keymap('v', '<M-k>', ":m '<-2<CR>gv=gv", _Eopts({desc = "Move one line up"}))

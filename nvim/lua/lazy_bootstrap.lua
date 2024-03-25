@@ -200,8 +200,11 @@ require('lazy').setup({
   -- url = "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
   -- lazy = false,
   -- },
+  -- Miscellanous
   -- Sorting
   { 'sQVe/sort.nvim', event = "VeryLazy" },
   -- Colorizer
   { 'norcalli/nvim-colorizer.lua', event = 'VeryLazy' },
+  -- Twilight - for dimming
+  -- { 'folke/twilight.nvim', event = "VeryLazy" },
 }, {})

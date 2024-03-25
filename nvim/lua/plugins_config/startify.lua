@@ -11,8 +11,6 @@ vim.g.startify_update_oldfiles = 0
 
 -- vim.g['startify_bookmarks'] = { }
 vim.g.startify_bookmarks = {
-  { ['c']  =  '~/.config' },
-  { ['d']  =  '~/.Dot' },
   { ['do'] =  '~/Experiments/Personal/dotfiles' },
   { ['ex'] =  '~/Experiments' },
   { ['gl'] =  '~/TOOLS/gitlab' },
@@ -20,16 +18,13 @@ vim.g.startify_bookmarks = {
   { ['gh'] =  '~/TOOLS/gitlab/helm' },
   { ['in'] =  '~/TOOLS/aetools-infra' },
   { ['N']  =  '~/Experiments/Personal/Notes/notes' },
-  { ['nv'] =  '~/.config/nvim/lua' },
+  { ['T']  =  '~/Experiments/Personal/Notes/notes/TempNotes/Today24' },
   { ['t']  =  '~/TOOLS' },
-  { ['wo'] =  '/work/' },
-  { ['x']  =  '~/.tmux/plugins/tmux-powerline' },
-  { ['z']  =  '~/.oh-my-zsh/plugins' },
 }
 
 vim.g['startify_skiplist'] = { '^/tmp', '^/var/tmp', '*vim', '*git', '*ssh', '*aws'}
 vim.g.startify_commands = {
-    { "Ranger", ':Ranger' },
+    { "Projects", ':Telescope projects' },
     -- { "Lazy sync", "Lazy sync" },
     -- { "Lazy update", "Lazy update" },
     -- { "Lazy profile", "Lazy profile" },

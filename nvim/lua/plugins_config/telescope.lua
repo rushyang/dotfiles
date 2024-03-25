@@ -29,6 +29,7 @@ pcall(require('telescope').load_extension, 'fzf')
 -- Telescope config
 require('telescope').setup {
   defaults = {
+    file_history_limit = 500,
     prompt_prefix = "   ",
     selection_caret = "  ",
     entry_prefix = "  ",
