@@ -49,6 +49,19 @@ require('telescope').setup {
         width = 0.75,
         height = 0.75,
         preview_cutoff = 40
+    },
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--follow'
+      -- '--fixed-strings',  -- Add this to treat patterns as fixed strings
+      -- '--pcre2',  -- Use PCRE2 for advanced pattern matching
+      -- '-e'  -- Use multiple patterns
     }
    },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
@@ -86,6 +99,12 @@ require('telescope').setup {
     --         -- include_body_and_footer = true,
     --     },
     -- },
+    --
+    -- extensions = {
+    --     live_grep_args = {
+    --     auto_quoting = true, -- enable auto-quoting
+    --     }
+    -- },
 }
 
 function _Create_conventional_commit()
@@ -109,5 +128,7 @@ function _Create_conventional_commit()
     })
     -- require('telescope.builtin').conventional_commits(opts)
 end
+
+-- require('telescope').load_extension('live_grep_args')
 
 -- vim.api.nvim_set_keymap("n", "<leader>cc", '<Cmd>lua create_conventional_commit()<CR>',  desc = "Create a conventional commit"})

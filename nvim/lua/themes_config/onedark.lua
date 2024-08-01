@@ -1,6 +1,6 @@
 -- Lua
 require('onedark').setup {
-    style = 'cool', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     term_colors = true, -- Change terminal color as per the selected theme style
 
     -- toggle theme style ---
@@ -10,7 +10,7 @@ require('onedark').setup {
     code_style = {
         comments = 'italic',
         keywords = 'italic,bold',
-        functions = 'underline',
+        functions = 'bold',
         strings = 'none',
         variables = 'none'
     },

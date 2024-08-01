@@ -8,6 +8,7 @@ require('trim').setup({
     trim_trailing = true,
     trim_last_line = true,
     trim_first_line = true,
+    highlight = true,
   },
   -- if you want to ignore markdown file.
   -- you can specify filetypes.

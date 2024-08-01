@@ -36,3 +36,5 @@ require('lspconfig')['yamlls'].setup{
         },
     },
 }
+-- Set the active Python language server
+vim.g.mason_language_server_python = 'pyright'

@@ -17,6 +17,7 @@ vim.g.startify_bookmarks = {
   { ['gi'] =  '~/TOOLS/gitlab/infrastructure' },
   { ['gh'] =  '~/TOOLS/gitlab/helm' },
   { ['in'] =  '~/TOOLS/aetools-infra' },
+  { ['nl'] =  '~/.local/share/nvim/lazy/' },
   { ['N']  =  '~/Experiments/Personal/Notes/notes' },
   { ['T']  =  '~/Experiments/Personal/Notes/notes/TempNotes/Today24' },
   { ['t']  =  '~/TOOLS' },

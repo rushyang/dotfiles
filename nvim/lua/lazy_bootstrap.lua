@@ -34,7 +34,7 @@ require('lazy').setup({
   { 'lewis6991/gitsigns.nvim' },
   { 'sindrets/diffview.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, },
   { 'olacin/telescope-cc.nvim', event = 'VeryLazy' },
-  { 'pabloariasal/webify.nvim', event = 'VeryLazy' },
+  { 'pabloariasal/webify.nvim', event = 'VeryLazy' }, -- OpenFileInRepo/OpenLineInRepo/YankLineUrl+/YankFileUrl+
   { 'ahmedkhalf/project.nvim' },      -- Telescope plugin to fuzzy find all git projects - recently opened
 
   ----- Detect tabstop and shiftwidth automatically
@@ -86,6 +86,7 @@ require('lazy').setup({
   { "navarasu/onedark.nvim", priority = 1000},
   { "oxfist/night-owl.nvim", priority = 1000},
   { "theniceboy/nvim-deus", priority = 1000},
+  -- { "vague2k/vague.nvim", priority = 1000},
   ----- Comments -----
   'tomtom/tcomment_vim',
 
@@ -96,12 +97,12 @@ require('lazy').setup({
   { "cappyzawa/trim.nvim", event = 'VeryLazy' },
 
   -- Coc.nvim for Language Server Protocol support
-  { 'neoclide/coc.nvim', event = 'VeryLazy', branch = 'release' },
+  { 'neoclide/coc.nvim',  branch = 'release' },
 
   -- Coc extensions
-  { 'neoclide/coc-lists', event = 'VeryLazy', run = 'yarn install --frozen-lockfile' },
-  { 'neoclide/coc-yaml', event = 'VeryLazy', run = 'yarn install --frozen-lockfile' },
-  { 'neoclide/coc-python', event = 'VeryLazy', run = 'yarn install --frozen-lockfile' },
+  { 'neoclide/coc-lists', run = 'yarn install --frozen-lockfile' },
+  { 'neoclide/coc-yaml', run = 'yarn install --frozen-lockfile' },
+  { 'neoclide/coc-python', run = 'yarn install --frozen-lockfile' },
 
   -- LSP Configuration & Plugins
   {
@@ -126,7 +127,7 @@ require('lazy').setup({
     dependencies = {
       "hrsh7th/cmp-buffer",
       -- Snippet Engine & its associated nvim-cmp source
-      -- 'L3MON4D3/LuaSnip',
+      'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds LSP completion capabilities
@@ -178,22 +179,13 @@ require('lazy').setup({
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
   },
+
+  -- Notes
+  { 'renerocksai/telekasten.nvim', event = 'VeryLazy' },
+
   -- AI
   ----- Github Copilot ----
-  { 'github/copilot.vim', event = 'VeryLazy' },
-
-  -- CodeGPT --
-  {
-    "dpayne/CodeGPT.nvim",
-     event = 'VeryLazy',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-    },
-    config = function()
-        require("codegpt.config")
-    end
-  },
+  -- { 'github/copilot.vim', event = 'VeryLazy' },
 
   -- Gitlab plugin
   -- {

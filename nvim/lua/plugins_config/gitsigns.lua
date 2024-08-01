@@ -8,7 +8,7 @@ require('gitsigns').setup {
     untracked    = { text = '┆' },
   },
   signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-  numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
+  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
   linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
   word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
   watch_gitdir = {
@@ -66,5 +66,6 @@ require('gitsigns').setup {
    map('n', '<leader>tb', gs.toggle_current_line_blame)
    map('n', '<leader>td', gs.toggle_deleted)
    map('n', '<leader>hd', gs.diffthis)
+   map('n', '<leader>S', gs.stage_hunk)
   end
 }
