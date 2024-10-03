@@ -38,3 +38,42 @@ require('lspconfig')['yamlls'].setup{
 }
 -- Set the active Python language server
 vim.g.mason_language_server_python = 'pyright'
+
+-- GoPls Setup
+local nvim_lsp = require('lspconfig')
+
+nvim_lsp.gopls.setup{
+    cmd = {"gopls"},
+    filetypes = {"go", "gomod"},
+    root_dir = nvim_lsp.util.root_pattern("go.mod", ".git"),
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+                shadow = true,
+            },
+            staticcheck = true,
+        },
+    },
+}
+
+local cmp = require'cmp'
+
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)  -- For `vsnip` users.
+        end,
+    },
+    mapping = {
+        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.close(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'buffer' },
+    },
+})
