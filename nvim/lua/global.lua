@@ -31,3 +31,14 @@ function _Eopts(options)
    end
    return eopts
 end
+
+-- Open help in a vertical split on the left
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "help",
+  callback = function()
+    vim.defer_fn(function()
+      vim.cmd("wincmd L")  -- Move the help window to the left
+      vim.cmd("wincmd R")  -- Switch the help window with the main window
+    end, 10)  -- Small delay (in milliseconds)
+  end,
+})

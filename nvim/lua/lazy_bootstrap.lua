@@ -79,20 +79,17 @@ require('lazy').setup({
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   { 'EdenEast/nightfox.nvim', priority = 1000 },
   { 'folke/tokyonight.nvim', name = 'tokyonight', priority = 1000 },
-  { 'rafamadriz/neon', priority = 1000 },
-  { 'sainnhe/edge', priority = 1000 },
-  { "tiagovla/tokyodark.nvim", priority = 1000 },
-  { "rebelot/kanagawa.nvim", priority = 1000 },
-  { "ellisonleao/gruvbox.nvim", priority = 1000 },
-  { "sainnhe/gruvbox-material", priority = 1000 },
-  -- { "sainnhe/everforest", priority = 1000 },
-  { "sainnhe/sonokai", priority = 1000 },
-  { 'Th3Whit3Wolf/onebuddy', priority = 1000,  dependencies = { 'tjdevries/colorbuddy.vim', }, },
-  { "Th3Whit3Wolf/one-nvim", priority = 1000},
-  { "navarasu/onedark.nvim", priority = 1000},
-  { "oxfist/night-owl.nvim", priority = 1000},
-  { "theniceboy/nvim-deus", priority = 1000},
-  -- { "vague2k/vague.nvim", priority = 1000},
+  -- { 'rafamadriz/neon', priority = 1000 },
+  -- { 'sainnhe/edge', priority = 1000 },
+  -- { "tiagovla/tokyodark.nvim", priority = 1000 },
+  -- { "rebelot/kanagawa.nvim", priority = 1000 },
+  -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
+  -- { "sainnhe/gruvbox-material", priority = 1000 },
+  -- { "sainnhe/sonokai", priority = 1000 },
+  -- { 'Th3Whit3Wolf/onebuddy', priority = 1000,  dependencies = { 'tjdevries/colorbuddy.vim', }, },
+  -- { "Th3Whit3Wolf/one-nvim", priority = 1000},
+  -- { "navarasu/onedark.nvim", priority = 1000},
+  -- { "oxfist/night-owl.nvim", priority = 1000},
   ----- Comments -----
   'tomtom/tcomment_vim',
 
@@ -224,16 +221,22 @@ require('lazy').setup({
   ----- Github Copilot ----
   -- { 'github/copilot.vim', event = 'VeryLazy' },
 
-  -- Gitlab plugin
-  -- {
-  -- url = "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
-  -- lazy = false,
-  -- },
   -- Miscellanous
   -- Sorting
   { 'sQVe/sort.nvim', event = "VeryLazy" },
+  -- Teleport to specific location:
+  {
+    'folke/flash.nvim', event = "VeryLazy",
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "zk",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "Zk",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    },
+  },
   -- Colorizer
   { 'norcalli/nvim-colorizer.lua', event = 'VeryLazy' },
-  -- Twilight - for dimming
-  -- { 'folke/twilight.nvim', event = "VeryLazy" },
 }, {})
