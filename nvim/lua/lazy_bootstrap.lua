@@ -65,7 +65,12 @@ require('lazy').setup({
   },
 
   ----- Indent -----
-  { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy', main = "ibl", opts = {} },
+  {
+    'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {},
+    dependencies = {
+      'HiPhish/rainbow-delimiters.nvim',
+    },
+  },
 
   ----- Lualine -----
   'nvim-lualine/lualine.nvim',
@@ -129,6 +134,20 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+  -- inlay hint - Need nvim 0.10
+  -- {
+  --   'felpafel/inlay-hint.nvim',
+  --   event = 'LspAttach',
+  --   config = true,
+  -- },
+  -- inlay diagnostics
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy", -- Or `LspAttach`
+    config = function()
+        require('tiny-inline-diagnostic').setup()
+    end
+  },
 
   -- Autocompletion
   {
@@ -156,7 +175,7 @@ require('lazy').setup({
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
-      -- "rcarriga/nvim-notify",
+      "rcarriga/nvim-notify",
       }
   },
 
@@ -190,7 +209,12 @@ require('lazy').setup({
   },
 
   -- Notes
-  { 'renerocksai/telekasten.nvim', event = 'VeryLazy' },
+  {
+    'renerocksai/telekasten.nvim', event = 'VeryLazy',
+    dependencies = {
+      "renerocksai/calendar-vim",
+    }
+  },
 
   -- AI
   ----- Github Copilot ----

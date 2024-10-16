@@ -11,15 +11,18 @@ vim.g.startify_update_oldfiles = 0
 
 -- vim.g['startify_bookmarks'] = { }
 vim.g.startify_bookmarks = {
+  { ['a'] =  '~/TOOLS/aetools-amis' },
+  { ['f'] =  '~/TOOLS/aetools-infra' },
   { ['do'] =  '~/Experiments/Personal/dotfiles' },
   { ['ex'] =  '~/Experiments' },
   { ['gl'] =  '~/TOOLS/gitlab' },
+  { ['go'] =  '~/Experiments/Prog/GoLang' },
   { ['gi'] =  '~/TOOLS/gitlab/infrastructure' },
   { ['gh'] =  '~/TOOLS/gitlab/helm' },
-  { ['in'] =  '~/TOOLS/aetools-infra' },
   { ['nl'] =  '~/.local/share/nvim/lazy/' },
+  { ['nvim'] =  '~/.config/nvim/lua/' },
   { ['N']  =  '~/Experiments/Personal/Notes/notes' },
-  { ['T']  =  '~/Experiments/Personal/Notes/notes/TempNotes/Today24' },
+  { ['W']  =  '~/Experiments/Personal/Notes/notes/Telekasten/Weeklies' },
   { ['t']  =  '~/TOOLS' },
 }
 
