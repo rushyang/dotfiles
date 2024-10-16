@@ -24,6 +24,7 @@ o.smartindent = true
 o.autowrite = true
 o.autoread = true
 o.tabline = "%!v:lua.require'tabby.tabline'.tabline()"
+o.helpheight = 999
 
 -- o.nocompatible = true --nvim is always nocompatible
 o.hidden = true
@@ -76,10 +77,10 @@ o.foldenable = false
 o.foldlevel = 1
 
 -- Paste Toggle
-o.pastetoggle = '<F4>'
+-- o.pastetoggle = '<F4>'
 
 -- Try increasing speed of the cursor
-vim.api.nvim_set_option('keymap', 'nvi-blank delay=100 rate=30')
+-- vim.api.nvim_set_option('keymap', 'nvi-blank delay=100 rate=30')
 vim.o.timeoutlen = 500
 
 -- Set cursor as block
