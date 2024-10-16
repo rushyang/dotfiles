@@ -1,7 +1,8 @@
--- Highlight Normal - Sets background to NONE
+-- Highlight Normal - Sets background
 -- vim.cmd([[highlight Normal ctermbg=NONE guibg=NONE]])
--- vim.cmd([[highlight Normal ctermbg=NONE guibg=#0f111a]])
-vim.cmd([[highlight Normal ctermbg=NONE guibg=#080a12]])
+-- vim.cmd([[highlight Normal ctermbg=NONE guibg=#080a12]])
+-- vim.cmd([[highlight Normal ctermbg=NONE guibg=#0b1017]])
+vim.cmd([[highlight Normal ctermbg=NONE guibg=#09121a]])
 
 -- Highlight NonText
 vim.cmd([[highlight NonText guibg=NONE ctermbg=NONE]])
@@ -18,6 +19,7 @@ vim.cmd([[autocmd TermOpen * setlocal nonumber norelativenumber]])
 -- Highlight Visual
 -- vim.cmd([[highlight Visual guifg=Yellow1 guibg='#71839b' gui=none]])
 vim.cmd([[highlight Visual guifg='#dbc074' guibg='#3c5372' gui=none]])
+-- vim.cmd([[highlight Visual guifg='#89ddff' guibg='#3c5372' gui=none]])
 
 -- Set $NVIM_TUI_ENABLE_TRUE_COLOR to 1
 vim.env["NVIM_TUI_ENABLE_TRUE_COLOR"] = "1"
@@ -59,8 +61,8 @@ end
 -- Override LspDiagnostics colors
   -- hi DiagnosticError guifg=#43616b
 vim.cmd [[
-  hi DiagnosticError guifg=#806425
-  hi DiagnosticWarn guifg=#6c6c6c
+  hi DiagnosticError guifg=#9c3930
+  hi DiagnosticWarn guifg=#806425
   hi DiagnosticInfo guifg=#005f87
   hi DiagnosticHint guifg=#00af87
 ]]
