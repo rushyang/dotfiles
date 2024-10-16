@@ -36,6 +36,7 @@ require('lazy').setup({
   { 'olacin/telescope-cc.nvim', event = 'VeryLazy' },
   { 'pabloariasal/webify.nvim', event = 'VeryLazy' }, -- OpenFileInRepo/OpenLineInRepo/YankLineUrl+/YankFileUrl+
   { 'ahmedkhalf/project.nvim' },      -- Telescope plugin to fuzzy find all git projects - recently opened
+  { 'aaronhallaert/advanced-git-search.nvim' }, -- Advanced GitSearch extension for Telscope and fzf-lua
 
   ----- Detect tabstop and shiftwidth automatically
   { 'tpope/vim-sleuth', event = 'VeryLazy' },
@@ -109,7 +110,15 @@ require('lazy').setup({
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
-      { 'williamboman/mason.nvim', config = true },
+      {
+        'williamboman/mason.nvim',
+        opts = {
+          ensure_installed = {
+            "gopls",
+          },
+        },
+        config = true
+      },
       'williamboman/mason-lspconfig.nvim',
 
       -- Useful status updates for LSP

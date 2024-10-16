@@ -39,23 +39,60 @@ require('lspconfig')['yamlls'].setup{
 -- Set the active Python language server
 vim.g.mason_language_server_python = 'pyright'
 
+-- local lspconfig = require "lspconfig"
+--
+-- lspconfig.lua_ls.setup {
+--   filetypes = { "lua" },
+--   settings = {
+--     Lua = {
+--       runtime = {
+--         version = "LuaJIT",
+--       },
+--       completion = {
+--         callSnippet = "Replace",
+--       },
+--       diagnostics = {
+--         globals = { "vim" },
+--       },
+--       format = {
+--         defaultConfig = {
+--         },
+--       },
+--       hint = {
+--         enable = true,
+--       },
+--     },
+--   },
+-- }
 -- GoPls Setup
-local nvim_lsp = require('lspconfig')
-
-nvim_lsp.gopls.setup{
-    cmd = {"gopls"},
-    filetypes = {"go", "gomod"},
-    root_dir = nvim_lsp.util.root_pattern("go.mod", ".git"),
-    settings = {
-        gopls = {
-            analyses = {
-                unusedparams = true,
-                shadow = true,
-            },
-            staticcheck = true,
-        },
-    },
-}
+-- local nvim_lsp = require('lspconfig')
+--
+-- nvim_lsp.gopls.setup{
+--     on_attach = function(client, bufnr)
+--         -- Enable autocompletion and hover functionality
+--         local opts = { noremap = true, silent = true }
+--
+--         -- Bind hover functionality to 'K'
+--         vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+--
+--         -- Other useful LSP mappings
+--         vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+--         vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+--         vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+--     end,
+--     cmd = {"gopls"},
+--     filetypes = {"go", "gomod"},
+--     root_dir = nvim_lsp.util.root_pattern("go.mod", ".git"),
+--     settings = {
+--         gopls = {
+--             analyses = {
+--                 unusedparams = true,
+--                 shadow = true,
+--             },
+--             staticcheck = true,
+--         },
+--     },
+-- }
 
 local cmp = require'cmp'
 
