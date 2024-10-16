@@ -31,6 +31,13 @@ require("project_nvim").setup({
       ---@usage list of lsp client names to ignore when using **lsp** detection. eg: { "efm", ... }
       ignore_lsp = {},
 
+      -- Exclude List
+      exclude_dirs = {
+        "~/.local/*",
+        -- "~/.config/*",
+        "~/.tmux/*",
+      },
+
       ---@type string
       ---@usage path to store the project history for use in telescope
       datapath = vim.fn.stdpath("data"),

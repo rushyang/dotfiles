@@ -17,7 +17,7 @@ keymap("n", "<C-k>", "<C-w>k", _Eopts({desc = "Go to Upper Buffer"}))
 keymap("n", "<C-l>", "<C-w>l", _Eopts({desc = "Go to Right Buffer"}))
 keymap("n", "dw", "daw", _Eopts({desc = "Delete a word around cursor"}))
 keymap("n", "gh", "^", _Eopts({desc = "Move to start of line in normal mode"}))
-keymap("n", "gl", "$<Left>", _Eopts({desc = "Move to end of line in normal mode"}))
+keymap("n", "gl", "$", _Eopts({desc = "Move to end of line in normal mode"}))
 
 -- (N) Search Settings
 keymap("n", "ss", ":noh<CR>", _Eopts({desc = "Clear Search Highlight"}))
@@ -55,9 +55,8 @@ keymap("n", "<Leader>gs", '<Cmd>Telescope grep_string<CR>', _Eopts({desc = "Tele
 -- (N) New Tabs, Cycle through the tas and buffers
 keymap("n", ")", ":tabnext<CR>", optns)
 keymap("n", "(", ":tabprevious<CR>", optns)
-keymap("n", "<C-t>", ":tabnew<CR>", optns)
-keymap("n", "<M-t>", ":tabnew | Ranger <CR>", optns)
-keymap("n", "<M-h>", ":tabnew | lua require('telescope.builtin').oldfiles()<CR>", optns)
+keymap("n", "<C-t>", ":tabnew | :Startify<CR>", optns)
+keymap("n", "<C-t>t", ":tabnew | Ranger <CR>", optns)
 keymap("n", "<C-Space>1", "1gt", _Eopts({desc = "Go to Neovim Tab# 1"}))
 keymap("n", "<C-Space>2", "2gt", _Eopts({desc = "Go to Neovim Tab# 2"}))
 keymap("n", "<C-Space>3", "3gt", _Eopts({desc = "Go to Neovim Tab# 3"}))
@@ -67,10 +66,16 @@ keymap("n", "}", ":bnext<CR>", _Eopts({desc = "Next Buffer"}))
 keymap("n", "{", ":bprevious<CR>", _Eopts({desc = "Previous Buffer"}))
 keymap("n", "_", ":bdelete<CR>", _Eopts({desc = "Delete Buffer"}))
 
+-- (N) Telekasten Keymaps
+keymap("n", "<M-k>w", "<Cmd>Telekasten goto_thisweek<CR>", _Eopts({desc = "Telekasten goto_week"}))
+keymap("n", "<M-k>d", "<Cmd>Telekasten toggle_todo<CR>", _Eopts({desc = "Telekasten toggle_todo"}))
+keymap("n", "<M-k>f", "<Cmd>Telekasten find_notes<CR>", _Eopts({desc = "Telekasten find_notes"}))
+keymap("n", "<M-k>c", "<Cmd>Telekasten show_calendar<CR>", _Eopts({desc = "Telekasten show_calendar"}))
+keymap("n", "<M-k>s", "<Cmd>Telekasten search_notes<CR>", _Eopts({desc = "Telekasten search_notes"}))
+
 -- (N) Save and Exit
 keymap("n", "<C-q>", ":q<CR>", _Eopts({desc = "[Q]uit current buffer"}))
 keymap("n", "<C-w>", ":w<CR>", _Eopts({desc = "[W]rite current buffer"}))
-keymap("n", "<M-Q>", ":wq<CR>", _Eopts({desc = "Save and Exit"}))
 
 -- (N) Diff mode / Fugitive / Diffview
 keymap("n", "<Leader>d", [[<Cmd>windo diffthis<CR>]], _Eopts({desc = "Start [D]iff two buffers"}))
@@ -98,11 +103,11 @@ keymap("n", "<F6>", ":lua toggle_Noice()<CR>", _Eopts({desc = "Noice Toggle"}))
 keymap("n", "<C-Space>C", ":ColorizerToggle<CR>", _Eopts({desc = "ColorizerToggle"}))
 
 -- (N) Misc
-keymap("n", "Q", "q", optns)
+-- keymap("n", "Q", ":call _Record_macro()<CR>", _Eopts({desc = "Record a Macro"}))
 keymap("n", "<M-R>", ":luafile ~/.config/nvim/init.lua<CR>", _Eopts({desc = "Load init.lua"}))
 keymap("n", "<M-T>", ":luafile ~/.config/nvim/lua/themes_config/themes_overrides.lua<CR>", _Eopts({desc = "Load theme overrides"}))
 keymap("n", "<C-Space>in", ":IBLToggle<CR>", _Eopts({desc = "IndentBlankline Toggle"}))
-keymap("n", "<Leader>co", ":Copilot<CR>", _Eopts({desc = "Invoking Copilot"}))
+-- keymap("n", "<Leader>co", ":Copilot<CR>", _Eopts({desc = "Invoking Copilot"}))
 -- keymap("n", "<Leader><C-g>", "<Plug>(GitlabToggleCodeSuggestions)", _Eopts({desc = "Toggle Gitlab Code Suggestions"}))
 keymap("n", "<C-Space>M", ":MarkdownPreview<CR>", _Eopts({desc = "Markdown Preview"}))
 keymap("n", "<C-Space>S", ":Startify<CR>", _Eopts({desc = "Open startify"}))
@@ -116,14 +121,14 @@ keymap("i", "hhh", "<Esc>`^", opts)
 keymap('i', '<M-j>', 'copilot#Accept("<CR>")', { silent = true, expr = true, script = true})
 
 -- Visual Mode
-keymap("v", "<F6>", "y<c-w>wp<c-w>pgv", _Eopts({desc = "Text Movement from one pane to another"}))
+keymap("v", "<F6>", "y<c-w>wp<c-w>pgv", _Eopts({desc = "Copy selected text from one pane to another"}))
 keymap("v", "gh", "^", _Eopts({desc = "Move to start of line in visual mode"}))
 keymap("v", "gl", "$<Left>", _Eopts({desc = "Move to end of line in visual mode"}))
 keymap("v", "y", "\"+y", _Eopts({desc = "Copy to System buffer"}))
-keymap('v', '<M-j>', ":m '>+1<CR>gv=gv", _Eopts({desc = "Move one line below"}))
-keymap('v', '<M-k>', ":m '<-2<CR>gv=gv", _Eopts({desc = "Move one line up"}))
+keymap('x', '<M-j>', ":move '>+1<CR>gv-gv", _Eopts({desc = "Move selected lines down"}))
+keymap('x', '<M-k>', ":move '<-2<CR>gv-gv", _Eopts({desc = "Move selected lines up"}))
 -- Terminal Mode
 -- keymap("t", "<Esc>", "<C-\\><C-n>:let g:isInsert=0<CR>", optns)
 
 -- Any Unassignments
-keymap("", "q", "<Nop>", opts)                                                                       -- Need to unassign the current macro mapping coming from core
+-- keymap("", "q", "<Nop>", opts)                                                                       -- Need to unassign the current macro mapping coming from core
