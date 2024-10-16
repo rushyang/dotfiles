@@ -1,6 +1,6 @@
 require("tokyodark").setup({
     transparent_background = false, -- set background to transparent
-    gamma = 1.00, -- adjust the brightness of the theme
+    gamma = 0.90, -- adjust the brightness of the theme
     styles = {
         comments = { italic = true }, -- style for comments
         keywords = { italic = true }, -- style for keywords

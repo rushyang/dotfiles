@@ -5,6 +5,7 @@ require('nightfox').setup({
     compile_path = vim.fn.stdpath("cache") .. "/nightfox",
     compile_file_suffix = "_compiled", -- Compiled file suffix
     transparent = false,     -- Disable setting background
+    harsh = true,            -- sets contrast harsher
     terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
     dim_inactive = false,    -- Non focused panes set to alternative background
     module_default = false,   -- Default enable value for modules
@@ -20,13 +21,13 @@ require('nightfox').setup({
     styles = {               -- Style to be applied to different syntax groups
       comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
       conditionals = "bold",
-      constants = "NONE",
-      functions = "underline",
-      keywords = "italic,bold",
-      numbers = "NONE",
+      constants = "underline",
+      functions = "bold",
+      keywords = "bold,italic",
+      numbers = "bold",
       operators = "NONE",
       strings = "NONE",
-      types = "NONE",
+      types = "bold,underline",
       variables = "NONE",
     },
     inverse = {             -- Inverse highlight for different types
@@ -40,14 +41,13 @@ require('nightfox').setup({
   },
   palettes = {
     nightfox = {
-      -- bg1 = "#0f111a",
-      bg1 = "#000000",
+      -- bg1 = "#000000",
       fg1 = "#d8d3ba",
-      pink = "#8c68ba",
-      blue = "#74a0db",
-      sel1 = "#005f87",
+      -- pink = "#8c68ba",
+      -- blue = "#74a0db",
       -- sel1 = "#0087af",
-      magenta = "#8c68ba",
+      -- magenta = "#8c68ba",
+      bg3 = "#0e0e17",
     },
     carbonfox = {
       -- bg1 = "#0f111a",
@@ -79,6 +79,7 @@ require('nightfox').setup({
   groups = {},
 })
 
--- vim.cmd("colorscheme nightfox")
-vim.cmd("colorscheme carbonfox")
+vim.cmd("colorscheme nightfox")
+-- vim.cmd("colorscheme carbonfox")
+-- vim.cmd("colorscheme nordfox")
 -- vim.cmd("colorscheme duskfox")

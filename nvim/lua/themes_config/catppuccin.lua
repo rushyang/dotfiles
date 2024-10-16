@@ -17,32 +17,50 @@ require("catppuccin").setup({
     no_underline = false, -- Force no underline
     styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
         comments = { "italic" }, -- Change the style of comments
-        conditionals = { "italic" },
+        conditionals = { "bold" },
         loops = {},
-        functions = {},
-        keywords = {},
+        functions = { "bold" },
+        keywords = { "bold", "italic" },
         strings = {},
         variables = {},
         numbers = { "bold" },
-        booleans = {},
+        booleans = { "bold" },
         properties = {},
-        types = {},
+        types = { "bold","underline" },
         operators = {},
     },
     color_overrides = {
         all = {
-            text = "#ffffff",
+            text = "#bfbdae",
+            -- Below aligns it a bit with tokyonight
+            mauve = "#bb9af7",
+            flamingo = "#9d7cd8",
+            peach = "#ff9e64",
+            lavender = "#3cbdb0",
+            green ="#71ad45",
+            -- overlay2 = "#5c6694"
         },
         latte = {
-            base = "#ff0000",
-            mantle = "#242424",
-            crust = "#474747",
+            -- base = "#ff0000",
+            -- mantle = "#242424",
+            -- crust = "#474747",
         },
         frappe = {},
         macchiato = {},
         mocha = {},
     },
-    custom_highlights = {},
+    custom_highlights = function(colors)
+        return{
+            -- Light up Telescope
+            TelescopePreviewBorder = { fg = '#db4b4b' },
+            TelescopePreviewTitle = { fg  = colors.teal },
+            TelescopeResultsBorder =  { fg  = colors.peach },
+            TelescopeResultsTitles =  { fg  = colors.red },
+            TelescopeMatching = { fg  = colors.blue },
+            TelescopePromptTitle = { fg = '#1abc9c' },
+            TelescopePromptBorder = { fg = '#1abc9c' },
+           }
+        end,
     integrations = {
         cmp = true,
         gitsigns = true,
@@ -50,6 +68,9 @@ require("catppuccin").setup({
         treesitter = true,
         notify = false,
         mini = false,
+        markdown = true,
+        telescope = { enabled = true },
+        flash = true,
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
 })
