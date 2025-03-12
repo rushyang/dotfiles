@@ -51,6 +51,17 @@ require('lazy').setup({
   event = 'VeryLazy',
   opts = {},
   },
+  -- Oil
+  -- {
+  -- 'stevearc/oil.nvim',
+  -- event = 'VeryLazy',
+  -- opts = {},
+  -- },
+  -- nvim-tree
+  -- {
+  --   'nvim-tree/nvim-tree.lua',
+  --   event = 'VeryLazy',
+  -- },
 
   ----- Icons -----
   'kyazdani42/nvim-web-devicons',
@@ -219,6 +230,12 @@ require('lazy').setup({
       "renerocksai/calendar-vim",
     }
   },
+  {
+    "nvim-neorg/neorg",
+    lazy = false,
+    version = "*",
+    config = true,
+  },
 
   -- Autoformatter
   {
@@ -240,8 +257,6 @@ require('lazy').setup({
     keys = {
       { "zk",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
       { "Zk",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
   },
