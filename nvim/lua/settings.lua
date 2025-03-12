@@ -50,6 +50,8 @@ o.splitbelow = true
 o.lazyredraw = false
 o.termguicolors = true
 o.ttyfast = true
+o.scrolloff = 5
+o.sidescrolloff = 8
 
 -- Control the behavior of search (:s) commands in real time with split below
 o.inccommand = 'split'
@@ -81,10 +83,10 @@ o.foldlevel = 1
 
 -- Try increasing speed of the cursor
 -- vim.api.nvim_set_option('keymap', 'nvi-blank delay=100 rate=30')
-vim.o.timeoutlen = 500
+vim.o.timeoutlen = 800
 
 -- Set cursor as block
-vim.o.guicursor = "a:Block"
+vim.o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- Tabline
 -- o.showtabline = 2
