@@ -45,11 +45,9 @@ require('lazy').setup({
   -- (Ranger + Dependency)
   { 'rbgrouleff/bclose.vim', event = 'VeryLazy' },
   { 'francoiscabrol/ranger.vim', event = 'VeryLazy' },
-  -- Oil
-  {
-  'stevearc/oil.nvim',
-  event = 'VeryLazy',
-  opts = {},
+  { 'mikavilpas/yazi.nvim',
+    event = 'VeryLazy',
+    dependencies = { "folke/snacks.nvim", lazy = true },
   },
   -- Oil
   -- {

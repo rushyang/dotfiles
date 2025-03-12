@@ -20,7 +20,7 @@ vim.g.startify_bookmarks = {
   { ['gi'] =  '~/TOOLS/gitlab/infrastructure' },
   { ['gh'] =  '~/TOOLS/gitlab/helm' },
   { ['nl'] =  '~/.local/share/nvim/lazy/' },
-  { ['nvim'] =  '~/.config/nvim/lua/' },
+  { ['nv'] =  '~/.config/nvim/lua/' },
   { ['N']  =  '~/Experiments/Personal/Notes/notes' },
   { ['W']  =  '~/Experiments/Personal/Notes/notes/Telekasten/Weeklies' },
   { ['t']  =  '~/TOOLS' },
@@ -28,7 +28,8 @@ vim.g.startify_bookmarks = {
 
 vim.g['startify_skiplist'] = { '^/tmp', '^/var/tmp', '*vim', '*git', '*ssh', '*aws'}
 vim.g.startify_commands = {
-    { "Projects", ':Telescope projects' },
+    -- { "Projects", ':Telescope projects' },
+    { "Yazi", ':Yazi' },
     -- { "Lazy sync", "Lazy sync" },
     -- { "Lazy update", "Lazy update" },
     -- { "Lazy profile", "Lazy profile" },

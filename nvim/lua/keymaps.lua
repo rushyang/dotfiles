@@ -43,8 +43,8 @@ keymap('n', '<Leader>h', [[<Cmd>lua require('telescope.builtin').oldfiles()<CR>]
 keymap("n", "<C-Space><C-h>", [[<Cmd>vertical split | lua require('telescope.builtin').oldfiles()<CR>]], _Eopts({desc = "Vertical Split and [H]istory Search"}))
 keymap("n", "<Leader>b", [[<Cmd>Telescope buffers<CR>]], _Eopts({desc = "Open [B]uffers"}))
 keymap("n", "<C-Space><C-b>", [[<Cmd>vertical split | :Telescope buffers<CR>]], _Eopts({desc = "Vertical Split and Open [B]uffers"}))
-keymap("n", "<Leader>r", ":Ranger<CR>", _Eopts({desc = "Open Ranger in current buffer"}))
-keymap("n", "<C-Space><C-l>", ":vertical split | :Ranger<CR>", _Eopts({desc = "Vertical Split and Open Ranger"}))
+-- keymap("n", "<Leader>r", ":Ranger<CR>", _Eopts({desc = "Open Ranger in current buffer"}))
+-- keymap("n", "<C-Space><C-l>", ":vertical split | :Ranger<CR>", _Eopts({desc = "Vertical Split and Open Ranger"}))
 keymap("n", "<Leader>g", [[<Cmd>Telescope git_files<CR>]], _Eopts({desc = "Telescope git_files"}))
 keymap("n", "<C-Space><C-g>", [[<Cmd>vertical split | :Telescope git_files<CR>]], _Eopts({desc = "Vertical Split + Telescope git_files"}))
 keymap("n", "<Leader>t", '<Cmd>lua telescope_live_grep_in_git_project()<CR>', _Eopts({desc = "Live grep in Git Project"}))
@@ -53,10 +53,12 @@ keymap("n", "<Leader>fp", '<Cmd>Telescope projects<CR>', _Eopts({desc = "Telesco
 keymap("n", "<Leader>gs", '<Cmd>Telescope grep_string<CR>', _Eopts({desc = "Telescope [G]rep [S]tring"}))
 
 -- (N) New Tabs, Cycle through the tas and buffers
-keymap("n", ")", ":tabnext<CR>", optns)
-keymap("n", "(", ":tabprevious<CR>", optns)
+keymap("n", "<C-Space><C-p>", ":tabprevious<CR>", optns)
+keymap("n", "<C-Space><C-n>", ":tabnext<CR>", optns)
 keymap("n", "<C-t>", ":tabnew | :Startify<CR>", optns)
-keymap("n", "<C-t>t", ":tabnew | Ranger <CR>", optns)
+-- keymap("n", "<C-t>t", ":tabnew | Ranger <CR>", optns)
+keymap("n", "<C-Space>!", ":tab split<CR>", _Eopts({desc = "Split buffer to new tab"}))
+keymap("n", "<C-Space>oi", ":Oil <CR>", optns)
 keymap("n", "<C-Space>1", "1gt", _Eopts({desc = "Go to Neovim Tab# 1"}))
 keymap("n", "<C-Space>2", "2gt", _Eopts({desc = "Go to Neovim Tab# 2"}))
 keymap("n", "<C-Space>3", "3gt", _Eopts({desc = "Go to Neovim Tab# 3"}))
@@ -64,7 +66,11 @@ keymap("n", "<C-Space>4", "4gt", _Eopts({desc = "Go to Neovim Tab# 4"}))
 keymap("n", "<C-Space>5", "5gt", _Eopts({desc = "Go to Neovim Tab# 5"}))
 keymap("n", "}", ":bnext<CR>", _Eopts({desc = "Next Buffer"}))
 keymap("n", "{", ":bprevious<CR>", _Eopts({desc = "Previous Buffer"}))
-keymap("n", "_", ":bdelete<CR>", _Eopts({desc = "Delete Buffer"}))
+keymap("n", "<M-->", ":bdelete<CR>", _Eopts({desc = "Delete Buffer"}))
+
+-- Yazi Keymaps
+keymap("n", "<Leader>r", "<cmd>Yazi<cr>",_Eopts({desc = "Open Yazi at the current file"}))
+keymap("n", "<C-Space><C-l>", ":vertical split | :Yazi<CR>", _Eopts({desc = "Vertical Split and Open Yazi (habit)"}))
 
 -- (N) Telekasten Keymaps
 keymap("n", "<M-k>w", "<Cmd>Telekasten goto_thisweek<CR>", _Eopts({desc = "Telekasten goto_week"}))
@@ -81,7 +87,7 @@ keymap("n", "<C-w>", ":w<CR>", _Eopts({desc = "[W]rite current buffer"}))
 keymap("n", "<Leader>d", [[<Cmd>windo diffthis<CR>]], _Eopts({desc = "Start [D]iff two buffers"}))
 keymap("n", "<C-Space><C-d>", [[<Cmd>windo diffoff<CR>]], _Eopts({desc = "Stop [D]iff two buffers"}))
 keymap("n", "<M-d>", [[<Cmd>windo diffthis<CR>]], _Eopts({desc = "Start [D]iff two buffers -- Alternative"}))                      -- <Leader>d conflicts with jedi during python development
-keymap("n", "<C-Space>G", ":Gvdiffsplit! ", optns)
+keymap("n", "<C-Space>G", ":Gvdiffsplit ", optns)
 keymap("n", "<Leader><M-0>", ":DiffviewFileHistory % <CR>", _Eopts({desc = "Open commits (File History) of this file"}))
 keymap("n", "<C-Space><M-0>", ":0Gllog <CR>", _Eopts({desc = "Fugitive log commits of current file"}))
 keymap("n", "<M-g>", ':lua _FOCUS_RESIZE0()<CR> :DiffviewOpen ', optns)
@@ -93,7 +99,7 @@ keymap("n", "<Leader>cc",':lua _Create_conventional_commit()<CR>', _Eopts({desc 
 -- (N) Toggles
 keymap("n", "<C-Space><C-\\>", [[<Cmd>setlocal nonumber! | IBLToggle <CR>]], optns)
 keymap("n", "<C-Space>ww", ":set wrap!<CR>", optns)
-keymap("n", "<C-Space><C-s>", ":set scrollbind! scrollbind?<CR>", optns)
+keymap("n", "<C-Space><C-s>", ":set scrollbind!<CR>:set scrollbind?<CR>", optns)
 keymap('n', '<F2>', ':lua toggle_CoC()<CR>', _Eopts({desc = "CoC Toggle"}))
 keymap('n', '<F3>', ':FocusToggle<CR>', _Eopts({desc = "Focus Toggle"}))
 keymap("n", "<F4>", ":lua toggle_Lsp()<CR>", _Eopts({desc = "Lsp Toggle"}))
@@ -111,6 +117,7 @@ keymap("n", "<C-Space>in", ":IBLToggle<CR>", _Eopts({desc = "IndentBlankline Tog
 -- keymap("n", "<Leader><C-g>", "<Plug>(GitlabToggleCodeSuggestions)", _Eopts({desc = "Toggle Gitlab Code Suggestions"}))
 keymap("n", "<C-Space>M", ":MarkdownPreview<CR>", _Eopts({desc = "Markdown Preview"}))
 keymap("n", "<C-Space>S", ":Startify<CR>", _Eopts({desc = "Open startify"}))
+keymap("n", "<C-Space>c", ":Telescope colorscheme<CR>", _Eopts({desc = "Select colorscheme in Telescope"}))
 
 -- Insert Mode
 -- (I) Change insert mode key:
@@ -121,7 +128,7 @@ keymap("i", "hhh", "<Esc>`^", opts)
 keymap('i', '<M-j>', 'copilot#Accept("<CR>")', { silent = true, expr = true, script = true})
 
 -- Visual Mode
-keymap("v", "<F6>", "y<c-w>wp<c-w>pgv", _Eopts({desc = "Copy selected text from one pane to another"}))
+keymap("v", "<F6>", "y<c-w>wP<c-w>pgv", _Eopts({desc = "Copy selected text from one pane to another"}))
 keymap("v", "gh", "^", _Eopts({desc = "Move to start of line in visual mode"}))
 keymap("v", "gl", "$<Left>", _Eopts({desc = "Move to end of line in visual mode"}))
 keymap("v", "y", "\"+y", _Eopts({desc = "Copy to System buffer"}))

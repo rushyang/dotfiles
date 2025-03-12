@@ -1,0 +1,62 @@
+[manager]
+ratio = [1, 4, 3]
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+linemode = "size_and_mtime"
+show_hidden = false
+show_synlink = true
+mouse_events = [ "click", "scroll", "touch", "move", "drag" ]
+
+[preview]
+wrap = "no"
+
+[opener]
+text = [
+  # { run = '$EDITOR "$@"', block = true, desc = "$EDITOR", for = "linux" },
+  # { run = 'nvim "$@"', block = true, desc = "nvim", for = "linux" },
+  { run = 'kitty --detach nvim "$@"', block = true, desc = "neovim (detached)", for = "linux" },
+  { run = 'codium  "$@"', orphan = true, desc = "vscodium", for = "linux" },
+  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
+]
+
+edit = [
+	# { run = '$EDITOR "$@"', block = true, for = "unix" },
+  { run = 'nvim "$@"', block = true, desc = "nvim", for = "linux" },
+  { run = 'nvim "$@"', block = true, desc = "nvim", for = "unix" },
+  { run = 'nvim "$@"', block = true, desc = "nvim", for = "macos" },
+]
+
+[open]
+prepend_rules = [
+  # Specific extensions
+  { name = "*.json", use = "edit" },
+  { name = "*.crt", use = [ "open", "edit" ] },
+  { name = "*.csv", use = "edit" },
+
+  # Folder
+  { name = "*/", use = "folder" },
+  # mimes:
+  { name = "text/*", use = "edit" },
+  { mime = "application/zip", use = "archive" },
+  { mime = "application/gzip", use = "archive" },
+  { mime = "application/x-bzip", use = "archive" },
+  { mime = "application/x-bzip2", use = "archive" },
+  { mime = "application/x-tar", use = "archive" },
+  { mime = "application/x-7z-compressed", use = "archive" },
+  { mime = "application/x-rar", use = "archive" },
+  { mime = "application/pdf", use = "document" },
+
+  # Fallback for *
+  { name = "*", use = "fallback" },
+]
+
+[fallback]
+rules = [
+  # I primarily use this during development - hence nvim
+  { run = 'nvim "$@"', block = true, desc = "nvim fallback", for = "linux" },
+]
+
+[input]
+  cursor_blink = true

@@ -6,7 +6,7 @@
 </h1>
 
 ## ✨Introduction:
-* These dotfiles constitue my Personal Development Environment (PDE), where I extensively employ [tmux](https://github.com/tmux/tmux), [Oh-My-Zsh](https://ohmyz.sh/), [NeoVim](https://github.com/neovim/neovim), [PowerLevel10k](https://github.com/romkatv/powerlevel10k), and [Ranger](https://github.com/kelly-lin/ranger.nvim), etc. Feel free to adopt and customize these configurations to enhance your development experience and turn it into a pure fun! 
+* These dotfiles constitue my Personal Development Environment (PDE), where I extensively employ [tmux](https://github.com/tmux/tmux), [Oh-My-Zsh](https://ohmyz.sh/), [NeoVim](https://github.com/neovim/neovim), [PowerLevel10k](https://github.com/romkatv/powerlevel10k), [Ranger](https://github.com/kelly-lin/ranger.nvim), and [Yazi](https://github.com/sxyazi/yazi) etc. Feel free to adopt and customize these configurations to enhance your development experience and turn it into a pure fun! 
 <hr>
 
 ##  Screenshot:
