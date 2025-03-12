@@ -185,6 +185,7 @@ require('lazy').setup({
 
   -- NvimTab names (Tabby)
   { 'nanozuki/tabby.nvim', event = 'VeryLazy' },
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons', event = 'VeryLazy' },
 
   -- Startify
   'mhinz/vim-startify',
@@ -217,6 +218,11 @@ require('lazy').setup({
     }
   },
 
+  -- Autoformatter
+  {
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+  },
   -- AI
   ----- Github Copilot ----
   -- { 'github/copilot.vim', event = 'VeryLazy' },
