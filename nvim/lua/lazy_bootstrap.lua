@@ -76,20 +76,22 @@ require('lazy').setup({
   'nvim-lualine/lualine.nvim',
 
   ----- Colorschemes ----
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-  { 'EdenEast/nightfox.nvim', priority = 1000 },
-  { 'folke/tokyonight.nvim', name = 'tokyonight', priority = 1000 },
+  { 'catppuccin/nvim', lazy =  false, name = 'catppuccin', priority = 1000 },
+  { 'EdenEast/nightfox.nvim', lazy =  false, priority = 1000 },
+  { 'folke/tokyonight.nvim', lazy =  false, name = 'tokyonight', priority = 1000 },
+  { 'kepano/flexoki-neovim', lazy = false, name = 'flexoki', priority = 1000 },
+  -- { '0xstepit/flow.nvim', lazy = false, priority = 1000 },
   -- { 'rafamadriz/neon', priority = 1000 },
   -- { 'sainnhe/edge', priority = 1000 },
   -- { "tiagovla/tokyodark.nvim", priority = 1000 },
   -- { "rebelot/kanagawa.nvim", priority = 1000 },
   -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
-  -- { "sainnhe/gruvbox-material", priority = 1000 },
+  { "sainnhe/gruvbox-material", priority = 1000 },
   -- { "sainnhe/sonokai", priority = 1000 },
   -- { 'Th3Whit3Wolf/onebuddy', priority = 1000,  dependencies = { 'tjdevries/colorbuddy.vim', }, },
   -- { "Th3Whit3Wolf/one-nvim", priority = 1000},
   -- { "navarasu/onedark.nvim", priority = 1000},
-  -- { "oxfist/night-owl.nvim", priority = 1000},
+  { "oxfist/night-owl.nvim", priority = 1000},
   ----- Comments -----
   'tomtom/tcomment_vim',
 
