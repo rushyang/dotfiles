@@ -8,6 +8,7 @@ linemode = "size_and_mtime"
 show_hidden = false
 show_synlink = true
 mouse_events = [ "click", "scroll", "touch", "move", "drag" ]
+theme = "~/.config/yazi/theme.toml"
 
 [preview]
 wrap = "no"

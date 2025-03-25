@@ -1,5 +1,20 @@
 "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
 [flavor]
-dark = "catppuccin-frappe"
+dark = "catppuccin-mocha"
+# dark = "gruvbox-dark"
 light = "nightfly"
+
+[manager]
+# Border
+# border_symbol = "┆"
+border_symbol = "│"
+border_style  = { fg = "#ff9e64" }
+
+[filetype]
+rules = [
+
+  # Fallbacks
+  { name = "*", fg = "#bdbbaf" },
+	{ name = "*/", fg = "#89b4fa" }
+]

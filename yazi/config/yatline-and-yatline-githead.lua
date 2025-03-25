@@ -120,7 +120,7 @@ require("yatline-githead"):setup({
 	untracked_symbol = " ",
 
 	prefix_color = global_palette.pink,
-	branch_color = global_palette.pink,
+	branch_color = global_palette.green,
 	commit_color = global_palette.mauve,
 	stashes_color = global_palette.teal,
 	state_color = global_palette.lavender,

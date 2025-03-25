@@ -43,6 +43,11 @@ use = "dedukun/relative-motions"
 rev = "8103065"
 hash = "9f13f0740fa3a0c18e47ec6fb62ddfaa"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "2730199"
+hash = "7918aab6a71caf31b58411f789195677"
+
 [[flavor.deps]]
 use = "tkapias/moonfly"
 rev = "395c686"
@@ -57,3 +62,8 @@ hash = "a8f426ea0d9cb843b081d62ab01364c8"
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "c023460"
 hash = "2ac87e1b3a61f5887472899e86535d29"
+
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "b4cc9f2"
+hash = "f44c42bcbed3c8564100e45e2fe3649a"
