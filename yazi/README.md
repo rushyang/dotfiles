@@ -2,7 +2,7 @@
 
 [Yazi](https://yazi-rs.github.io/docs/installation) is a **highly customizable** and **blazingly fast** terminal file manager written in Rust. It provides extensive customization options, efficient navigation, and plugin support, making it a powerful choice for terminal users.
 
-> **Note:** This configuration was committed using **Yazi version: 25.2.11**.
+> **Note:** This configuration was committed using **Yazi version: 25.3.2**.
 
 ---
 
@@ -45,13 +45,13 @@ To set up Yazi with this configuration, follow these steps:
 
 3. **Install Plugins from `package.toml`**
    ```sh
-   ya install -i
+   ya pack -i
    ```
    This will install all plugins listed in `package.toml`.
 
 4. **(Optional) Update Plugins**
    ```sh
-   ya install -u
+   ya pack -u
    ```
    This updates all installed plugins to their latest versions.
 
